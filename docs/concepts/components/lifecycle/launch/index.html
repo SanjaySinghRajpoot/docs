@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   
@@ -41,7 +41,8 @@
 <meta property="twitter:creator" content="@buildpacks_io">
 
   <script
-    src="https://cdn.jsdelivr.net/combine/npm/axios@0.21.0,npm/jquery@3.5.1,npm/bootstrap@4.5.3,npm/fullcalendar@5.4.0"></script>
+    src="https://cdn.jsdelivr.net/combine/npm/axios@0.21.0,npm/jquery@3.5.1,npm/bootstrap@4.5.3,npm/fullcalendar@5.4.0,npm/jquery-replacetext@1.1.0/replacetext.min.js"></script>
+
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css"
     crossorigin="anonymous">
@@ -56,6 +57,19 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJLSR4FQXL"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.6.1/asciinema-player.min.css"
+    integrity="sha512-tv24MiwP+0CRCL80VsmJYPl/xDD2tdlDMz9fhNCIAQ6UPrj6Kh/57hOt9A4YnoNDKH5QDxJqGhtt9NPW2sgQeg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer">
+  <style type="text/css">
+    .asciinema-theme-asciinema .fg-15 {
+        color: #6a2929;
+    }
+    .asciinema-theme-asciinema .asciinema-terminal {
+        color: #888888;
+    }
+  </style>
 
   <script>
     $(function () {
@@ -131,7 +145,7 @@
           <a class="nav-link py-2 px-1" href="/docs">Docs</a>
         </li>
         <li class="nav-item text-center d-lg-none">
-          <a class="nav-link py-2 px-1" href="https://github.com/buildpacks">GitHub</a>
+          <a class="nav-link py-2 px-1" target='_blank' rel="noopener noreferrer" href="https://github.com/buildpacks">GitHub</a>
         </li>
       </ul>
 
@@ -179,11 +193,11 @@
 <li data-nav-id="/docs/concepts/components/lifecycle/" class="dd-item depth-2 parent haschildren">
   <a href="/docs/concepts/components/lifecycle/">Lifecycle</a>
   <ul class="ml-2">
-<li data-nav-id="/docs/concepts/components/lifecycle/detect/" class="dd-item depth-3">
-  <a href="/docs/concepts/components/lifecycle/detect/">Detect</a>
-</li>
 <li data-nav-id="/docs/concepts/components/lifecycle/analyze/" class="dd-item depth-3">
   <a href="/docs/concepts/components/lifecycle/analyze/">Analyze</a>
+</li>
+<li data-nav-id="/docs/concepts/components/lifecycle/detect/" class="dd-item depth-3">
+  <a href="/docs/concepts/components/lifecycle/detect/">Detect</a>
 </li>
 <li data-nav-id="/docs/concepts/components/lifecycle/restore/" class="dd-item depth-3">
   <a href="/docs/concepts/components/lifecycle/restore/">Restore</a>
@@ -226,6 +240,20 @@
 </li>
   </ul>
 </li>
+<li data-nav-id="/docs/features/" class="dd-item depth-0 haschildren">
+  <a href="/docs/features/">Features</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/features/dockerfiles/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/dockerfiles/">Dockerfiles</a>
+</li>
+<li data-nav-id="/docs/features/reproducibility/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/reproducibility/">Reproducibility</a>
+</li>
+<li data-nav-id="/docs/features/bill-of-materials/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/bill-of-materials/">Software Bill of Materials</a>
+</li>
+  </ul>
+</li>
 <li data-nav-id="/docs/app-developer-guide/" class="dd-item depth-0 haschildren">
   <a href="/docs/app-developer-guide/">App Developer Guide</a>
   <ul class="ml-2">
@@ -235,23 +263,35 @@
 <li data-nav-id="/docs/app-developer-guide/build-a-windows-app/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/build-a-windows-app/">Build a Windows app</a>
 </li>
+<li data-nav-id="/docs/app-developer-guide/build-an-arm-app/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/build-an-arm-app/">Build an ARM app</a>
+</li>
 <li data-nav-id="/docs/app-developer-guide/environment-variables/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/environment-variables/">Environment variables</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/using-cache-image/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/using-cache-image/">Cache Images</a>
 </li>
-<li data-nav-id="/docs/app-developer-guide/mouting-volumes/" class="dd-item depth-1">
-  <a href="/docs/app-developer-guide/mouting-volumes/">Mounting Volumes</a>
+<li data-nav-id="/docs/app-developer-guide/mounting-volumes/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/mounting-volumes/">Mounting Volumes</a>
 </li>
-<li data-nav-id="/docs/app-developer-guide/specific-buildpacks/" class="dd-item depth-1">
-  <a href="/docs/app-developer-guide/specific-buildpacks/">Specify buildpacks</a>
+<li data-nav-id="/docs/app-developer-guide/specify-buildpacks/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/specify-buildpacks/">Specify buildpacks</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/run-an-app/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/run-an-app/">Specify launch process</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/using-project-descriptor/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/using-project-descriptor/">Using project.toml</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/using-inline-buildpacks/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/using-inline-buildpacks/">Using Inline Buildpacks</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/using-http-proxy/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/using-http-proxy/">Using Buildpacks with a Proxy</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/building-on-podman/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/building-on-podman/">Building on Podman</a>
 </li>
   </ul>
 </li>
@@ -298,6 +338,37 @@
 </li>
 <li data-nav-id="/docs/buildpack-author-guide/publishing-with-github-actions/" class="dd-item depth-1">
   <a href="/docs/buildpack-author-guide/publishing-with-github-actions/">Publishing with Github Actions</a>
+</li>
+<li data-nav-id="/docs/buildpack-author-guide/caching-strategies/" class="dd-item depth-1">
+  <a href="/docs/buildpack-author-guide/caching-strategies/">Layer Types</a>
+</li>
+<li data-nav-id="/docs/buildpack-author-guide/build-phases-overview/" class="dd-item depth-1">
+  <a href="/docs/buildpack-author-guide/build-phases-overview/">Overview of Buildpacks Phases</a>
+</li>
+  </ul>
+</li>
+<li data-nav-id="/docs/extension-author-guide/" class="dd-item depth-0 haschildren">
+  <a href="/docs/extension-author-guide/">Extension Author Guide</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/extension-author-guide/create-extension/" class="dd-item depth-1 haschildren">
+  <a href="/docs/extension-author-guide/create-extension/">Create an extension</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/extension-author-guide/create-extension/setup-local-environment/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/setup-local-environment/">Set up your local environment</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/why-dockerfiles/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/why-dockerfiles/">Why Dockerfiles</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/building-blocks-extension/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/building-blocks-extension/">Building blocks of a CNB Image Extension</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/build-dockerfile/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/build-dockerfile/">Generating a build.Dockerfile</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/run-dockerfile/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/run-dockerfile/">Generating a run.Dockerfile</a>
+</li>
+  </ul>
 </li>
   </ul>
 </li>
@@ -450,6 +521,27 @@
 <li data-nav-id="/docs/tools/pack/cli/pack_config_trusted-builders_remove/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_config_trusted-builders_remove/">pack config trusted-builders remove</a>
 </li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension/">pack extension</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_inspect/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_inspect/">pack extension inspect</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_new/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_new/">pack extension new</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_package/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_package/">pack extension package</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_pull/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_pull/">pack extension pull</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_register/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_register/">pack extension register</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_yank/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_yank/">pack extension yank</a>
+</li>
 <li data-nav-id="/docs/tools/pack/cli/pack_inspect/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_inspect/">pack inspect</a>
 </li>
@@ -458,6 +550,12 @@
 </li>
 <li data-nav-id="/docs/tools/pack/cli/pack_report/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_report/">pack report</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_sbom/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_sbom/">pack sbom</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_sbom_download/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_sbom_download/">pack sbom download</a>
 </li>
 <li data-nav-id="/docs/tools/pack/cli/pack_stack/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_stack/">pack stack</a>
@@ -481,6 +579,9 @@
 <li data-nav-id="/docs/tools/kpack/" class="dd-item depth-1">
   <a href="/docs/tools/kpack/">kpack</a>
 </li>
+<li data-nav-id="/docs/tools/piper/" class="dd-item depth-1">
+  <a href="/docs/tools/piper/">Project &ldquo;Piper&rdquo;</a>
+</li>
 <li data-nav-id="/docs/tools/tekton/" class="dd-item depth-1">
   <a href="/docs/tools/tekton/">Tekton</a>
 </li>
@@ -503,9 +604,6 @@
 </li>
   </ul>
 </li>
-<li data-nav-id="/docs/reference/reproducibility/" class="dd-item depth-1 collapse">
-  <a href="/docs/reference/reproducibility/">Reproducible Builds</a>
-</li>
 <li data-nav-id="/docs/reference/spec/" class="dd-item depth-1 collapse haschildren">
   <a href="/docs/reference/spec/">Specification</a>
   <ul class="ml-2">
@@ -524,6 +622,15 @@
 <li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.5-0.6/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/buildpack-api-0.5-0.6/">Buildpack API 0.5 -&gt; 0.6</a>
 </li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.6-0.7/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.6-0.7/">Buildpack API 0.6 -&gt; 0.7</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.7-0.8/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.7-0.8/">Buildpack API 0.7 -&gt; 0.8</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.8-0.9/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.8-0.9/">Buildpack API 0.8 -&gt; 0.9</a>
+</li>
 <li data-nav-id="/docs/reference/spec/migration/platform-api-0.3-0.4/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/platform-api-0.3-0.4/">Platform API 0.3 -&gt; 0.4</a>
 </li>
@@ -532,6 +639,18 @@
 </li>
 <li data-nav-id="/docs/reference/spec/migration/platform-api-0.5-0.6/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/platform-api-0.5-0.6/">Platform API 0.5 -&gt; 0.6</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.6-0.7/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.6-0.7/">Platform API 0.6 -&gt; 0.7</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.7-0.8/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.7-0.8/">Platform API 0.7 -&gt; 0.8</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.8-0.9/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.8-0.9/">Platform API 0.8 -&gt; 0.9</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.9-0.10/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.9-0.10/">Platform API 0.9 -&gt; 0.10</a>
 </li>
   </ul>
 </li>
@@ -628,36 +747,44 @@
 
   <footer>
   <div class="container footer">
-    <a href="https://www.cncf.io/" style="width: 50%;"><img src="/images/cncf-color.svg" class="footer-logo"></a>
+    <a href="https://www.cncf.io/" style="width: 50%;"><img src="/images/cncf-color.svg" class="footer-logo" alt="CNCF logo" ></a>
     <p>We are a <a href="https://www.cncf.io/">Cloud Native Computing Foundation</a> incubating project.</p>
   </div>
   <div class="bg-blue">
     <div class="container sub-footer">
       <ul>
         
-        <li><a target='_blank' href="https://buildpacks.devstats.cncf.io/d/8/dashboards?orgId=1&amp;refresh=15m">DevStats</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://buildpacks.devstats.cncf.io/d/8/dashboards?orgId=1&amp;refresh=15m">DevStats</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://datastudio.google.com/reporting/4b23856c-6c24-44f5-86f2-333d0ad3f236">Analytics</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://datastudio.google.com/reporting/4b23856c-6c24-44f5-86f2-333d0ad3f236">Analytics</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://www.linuxfoundation.org/privacy/">Privacy Policy</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://www.linuxfoundation.org/privacy/">Privacy Policy</a></li>
         
       </ul>
 
       <ul>
         
-        <li><a target='_blank' href="https://lists.cncf.io/g/cncf-buildpacks/join">Mailing List</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://lists.cncf.io/g/cncf-buildpacks/join">Mailing List</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://slack.buildpacks.io/">Slack</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://slack.cncf.io">Slack</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://twitter.com/buildpacks_io">Twitter</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/buildpacks_io">Twitter</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://github.com/buildpacks">GitHub</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://github.com/buildpacks">GitHub</a></li>
         
+      </ul>
+    </div>
+    <div class="container sub-footer">
+      <ul>
+        <li><p>Copyright © 2022 The Linux Foundation ®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="(https://www.linuxfoundation.org/trademark-usage">Trademark Usage page</a></p></li>
       </ul>
     </div>
   </div>
 </footer>
 
+
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.6.1/asciinema-player.min.js"></script>
 </body>
 
 </html>

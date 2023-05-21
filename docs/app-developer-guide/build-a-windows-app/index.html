@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   
@@ -41,7 +41,8 @@
 <meta property="twitter:creator" content="@buildpacks_io">
 
   <script
-    src="https://cdn.jsdelivr.net/combine/npm/axios@0.21.0,npm/jquery@3.5.1,npm/bootstrap@4.5.3,npm/fullcalendar@5.4.0"></script>
+    src="https://cdn.jsdelivr.net/combine/npm/axios@0.21.0,npm/jquery@3.5.1,npm/bootstrap@4.5.3,npm/fullcalendar@5.4.0,npm/jquery-replacetext@1.1.0/replacetext.min.js"></script>
+
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css"
     crossorigin="anonymous">
@@ -56,6 +57,19 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJLSR4FQXL"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.6.1/asciinema-player.min.css"
+    integrity="sha512-tv24MiwP+0CRCL80VsmJYPl/xDD2tdlDMz9fhNCIAQ6UPrj6Kh/57hOt9A4YnoNDKH5QDxJqGhtt9NPW2sgQeg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer">
+  <style type="text/css">
+    .asciinema-theme-asciinema .fg-15 {
+        color: #6a2929;
+    }
+    .asciinema-theme-asciinema .asciinema-terminal {
+        color: #888888;
+    }
+  </style>
 
   <script>
     $(function () {
@@ -131,7 +145,7 @@
           <a class="nav-link py-2 px-1" href="/docs">Docs</a>
         </li>
         <li class="nav-item text-center d-lg-none">
-          <a class="nav-link py-2 px-1" href="https://github.com/buildpacks">GitHub</a>
+          <a class="nav-link py-2 px-1" target='_blank' rel="noopener noreferrer" href="https://github.com/buildpacks">GitHub</a>
         </li>
       </ul>
 
@@ -179,11 +193,11 @@
 <li data-nav-id="/docs/concepts/components/lifecycle/" class="dd-item depth-2 haschildren">
   <a href="/docs/concepts/components/lifecycle/">Lifecycle</a>
   <ul class="ml-2">
-<li data-nav-id="/docs/concepts/components/lifecycle/detect/" class="dd-item depth-3 collapse">
-  <a href="/docs/concepts/components/lifecycle/detect/">Detect</a>
-</li>
 <li data-nav-id="/docs/concepts/components/lifecycle/analyze/" class="dd-item depth-3 collapse">
   <a href="/docs/concepts/components/lifecycle/analyze/">Analyze</a>
+</li>
+<li data-nav-id="/docs/concepts/components/lifecycle/detect/" class="dd-item depth-3 collapse">
+  <a href="/docs/concepts/components/lifecycle/detect/">Detect</a>
 </li>
 <li data-nav-id="/docs/concepts/components/lifecycle/restore/" class="dd-item depth-3 collapse">
   <a href="/docs/concepts/components/lifecycle/restore/">Restore</a>
@@ -226,6 +240,20 @@
 </li>
   </ul>
 </li>
+<li data-nav-id="/docs/features/" class="dd-item depth-0 haschildren">
+  <a href="/docs/features/">Features</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/features/dockerfiles/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/dockerfiles/">Dockerfiles</a>
+</li>
+<li data-nav-id="/docs/features/reproducibility/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/reproducibility/">Reproducibility</a>
+</li>
+<li data-nav-id="/docs/features/bill-of-materials/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/bill-of-materials/">Software Bill of Materials</a>
+</li>
+  </ul>
+</li>
 <li data-nav-id="/docs/app-developer-guide/" class="dd-item depth-0 parent haschildren">
   <a href="/docs/app-developer-guide/">App Developer Guide</a>
   <ul class="ml-2">
@@ -235,23 +263,35 @@
 <li data-nav-id="/docs/app-developer-guide/build-a-windows-app/" class="dd-item depth-1 active">
   <a href="/docs/app-developer-guide/build-a-windows-app/">Build a Windows app</a>
 </li>
+<li data-nav-id="/docs/app-developer-guide/build-an-arm-app/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/build-an-arm-app/">Build an ARM app</a>
+</li>
 <li data-nav-id="/docs/app-developer-guide/environment-variables/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/environment-variables/">Environment variables</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/using-cache-image/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/using-cache-image/">Cache Images</a>
 </li>
-<li data-nav-id="/docs/app-developer-guide/mouting-volumes/" class="dd-item depth-1">
-  <a href="/docs/app-developer-guide/mouting-volumes/">Mounting Volumes</a>
+<li data-nav-id="/docs/app-developer-guide/mounting-volumes/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/mounting-volumes/">Mounting Volumes</a>
 </li>
-<li data-nav-id="/docs/app-developer-guide/specific-buildpacks/" class="dd-item depth-1">
-  <a href="/docs/app-developer-guide/specific-buildpacks/">Specify buildpacks</a>
+<li data-nav-id="/docs/app-developer-guide/specify-buildpacks/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/specify-buildpacks/">Specify buildpacks</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/run-an-app/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/run-an-app/">Specify launch process</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/using-project-descriptor/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/using-project-descriptor/">Using project.toml</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/using-inline-buildpacks/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/using-inline-buildpacks/">Using Inline Buildpacks</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/using-http-proxy/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/using-http-proxy/">Using Buildpacks with a Proxy</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/building-on-podman/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/building-on-podman/">Building on Podman</a>
 </li>
   </ul>
 </li>
@@ -298,6 +338,37 @@
 </li>
 <li data-nav-id="/docs/buildpack-author-guide/publishing-with-github-actions/" class="dd-item depth-1">
   <a href="/docs/buildpack-author-guide/publishing-with-github-actions/">Publishing with Github Actions</a>
+</li>
+<li data-nav-id="/docs/buildpack-author-guide/caching-strategies/" class="dd-item depth-1">
+  <a href="/docs/buildpack-author-guide/caching-strategies/">Layer Types</a>
+</li>
+<li data-nav-id="/docs/buildpack-author-guide/build-phases-overview/" class="dd-item depth-1">
+  <a href="/docs/buildpack-author-guide/build-phases-overview/">Overview of Buildpacks Phases</a>
+</li>
+  </ul>
+</li>
+<li data-nav-id="/docs/extension-author-guide/" class="dd-item depth-0 haschildren">
+  <a href="/docs/extension-author-guide/">Extension Author Guide</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/extension-author-guide/create-extension/" class="dd-item depth-1 haschildren">
+  <a href="/docs/extension-author-guide/create-extension/">Create an extension</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/extension-author-guide/create-extension/setup-local-environment/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/setup-local-environment/">Set up your local environment</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/why-dockerfiles/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/why-dockerfiles/">Why Dockerfiles</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/building-blocks-extension/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/building-blocks-extension/">Building blocks of a CNB Image Extension</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/build-dockerfile/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/build-dockerfile/">Generating a build.Dockerfile</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/run-dockerfile/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/run-dockerfile/">Generating a run.Dockerfile</a>
+</li>
+  </ul>
 </li>
   </ul>
 </li>
@@ -450,6 +521,27 @@
 <li data-nav-id="/docs/tools/pack/cli/pack_config_trusted-builders_remove/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_config_trusted-builders_remove/">pack config trusted-builders remove</a>
 </li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension/">pack extension</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_inspect/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_inspect/">pack extension inspect</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_new/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_new/">pack extension new</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_package/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_package/">pack extension package</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_pull/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_pull/">pack extension pull</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_register/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_register/">pack extension register</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_yank/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_yank/">pack extension yank</a>
+</li>
 <li data-nav-id="/docs/tools/pack/cli/pack_inspect/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_inspect/">pack inspect</a>
 </li>
@@ -458,6 +550,12 @@
 </li>
 <li data-nav-id="/docs/tools/pack/cli/pack_report/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_report/">pack report</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_sbom/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_sbom/">pack sbom</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_sbom_download/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_sbom_download/">pack sbom download</a>
 </li>
 <li data-nav-id="/docs/tools/pack/cli/pack_stack/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_stack/">pack stack</a>
@@ -481,6 +579,9 @@
 <li data-nav-id="/docs/tools/kpack/" class="dd-item depth-1">
   <a href="/docs/tools/kpack/">kpack</a>
 </li>
+<li data-nav-id="/docs/tools/piper/" class="dd-item depth-1">
+  <a href="/docs/tools/piper/">Project &ldquo;Piper&rdquo;</a>
+</li>
 <li data-nav-id="/docs/tools/tekton/" class="dd-item depth-1">
   <a href="/docs/tools/tekton/">Tekton</a>
 </li>
@@ -503,9 +604,6 @@
 </li>
   </ul>
 </li>
-<li data-nav-id="/docs/reference/reproducibility/" class="dd-item depth-1 collapse">
-  <a href="/docs/reference/reproducibility/">Reproducible Builds</a>
-</li>
 <li data-nav-id="/docs/reference/spec/" class="dd-item depth-1 collapse haschildren">
   <a href="/docs/reference/spec/">Specification</a>
   <ul class="ml-2">
@@ -524,6 +622,15 @@
 <li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.5-0.6/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/buildpack-api-0.5-0.6/">Buildpack API 0.5 -&gt; 0.6</a>
 </li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.6-0.7/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.6-0.7/">Buildpack API 0.6 -&gt; 0.7</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.7-0.8/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.7-0.8/">Buildpack API 0.7 -&gt; 0.8</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.8-0.9/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.8-0.9/">Buildpack API 0.8 -&gt; 0.9</a>
+</li>
 <li data-nav-id="/docs/reference/spec/migration/platform-api-0.3-0.4/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/platform-api-0.3-0.4/">Platform API 0.3 -&gt; 0.4</a>
 </li>
@@ -532,6 +639,18 @@
 </li>
 <li data-nav-id="/docs/reference/spec/migration/platform-api-0.5-0.6/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/platform-api-0.5-0.6/">Platform API 0.5 -&gt; 0.6</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.6-0.7/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.6-0.7/">Platform API 0.6 -&gt; 0.7</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.7-0.8/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.7-0.8/">Platform API 0.7 -&gt; 0.8</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.8-0.9/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.8-0.9/">Platform API 0.8 -&gt; 0.9</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.9-0.10/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.9-0.10/">Platform API 0.9 -&gt; 0.10</a>
 </li>
   </ul>
 </li>
@@ -571,22 +690,44 @@
         </div>
 
         <blockquote>
-<p><strong>EXPERIMENTAL:</strong></p>
-<ul>
-<li>Please note that <strong>Windows container support is currently experimental</strong>. You may be asked to enable experimental features  in <code>pack</code> when running the following commands. Simply follow the on-screen instructions to do so.</li>
-<li>If you encounter any problems while experimenting, we&rsquo;d love for you to let us know by filing an issue on the <a href="https://github.com/buildpacks/pack/issues">pack</a> or <a href="https://github.com/buildpacks/lifecycle/issues">lifecycle</a> repo.</li>
-</ul>
+<p><strong>EXPERIMENTAL</strong> Windows support is experiment!</p>
+<p>Enable experimental mode by running: <code>pack config experimental true</code></p>
 </blockquote>
-<h3 id="recommended-reading">Recommended reading</h3>
-<p>Before trying out builds for Windows images, we recommend following the <a href="/docs/app-journey">Linux image tutorial</a> under <a href="/docs">Getting Started</a>. Don&rsquo;t worry, you can still run it on a Windows OS if you need to &ndash; just make sure to <a href="https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers">enable Linux containers</a> for Docker first.</p>
+<h3 id="precursor">Precursor</h3>
+<h4 id="recommended-reading">Recommended reading</h4>
+<p>Before trying out builds for Windows images, we recommend following the <a href="/docs/app-journey">Linux image tutorial</a> under <a href="/docs">Getting Started</a>. Don&rsquo;t worry, you can still run it on a Windows OS if you need to &ndash; just make sure to <a href="https://docs.docker.com/desktop/faqs/windowsfaqs/#how-do-i-switch-between-windows-and-linux-containers">enable Linux containers</a> for Docker first.</p>
 <p>When you&rsquo;re done, head back here.</p>
-<h3 id="enable-windows-container-mode">Enable Windows container mode</h3>
-<p>In order to produce Windows container images, ensure <a href="https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers">Windows container mode</a> is enabled in your Docker settings (available only in Docker for Windows).</p>
+<h4 id="enable-windows-container-mode">Enable Windows container mode</h4>
+<p>In order to produce Windows container images, ensure <a href="https://docs.docker.com/desktop/faqs/windowsfaqs/#how-do-i-switch-between-windows-and-linux-containers">Windows container mode</a> is enabled in your Docker settings (available only in Docker for Windows).</p>
 <p>Then, building a Windows app using Cloud Native Buildpacks is nearly identical to <a href="/docs/app-developer-guide/build-an-app">building for Linux</a>:</p>
 <blockquote>
 <p><strong>Not using Windows?</strong></p>
 <p><code>pack</code> can build Windows apps using a remote Windows Docker by setting a <code>DOCKER_HOST</code>. <a href="#using-remote-docker-hosts">Learn more</a></p>
 </blockquote>
+<hr>
+<h3 id="0-determine-windows-version">0. Determine Windows Version</h3>
+<p>Before we can start, we&rsquo;ll want to match your Windows environment.</p>
+<p>Type the following command in PowerShell:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Get-ItemProperty</span> <span class="s2">&#34;HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion&#34;</span> <span class="p">|</span> <span class="nb">Format-Table</span> <span class="n">-Property</span> <span class="n">ReleaseId</span><span class="p">,</span> <span class="n">CurrentBuild</span>
+</span></span></code></pre></div><p>Select the output that best matches your environment:
+<div id="page-replacer" class="btn-group py-2" role="group">
+<button type="button" class="btn btn-outline-primary" data-search='1809|2004|2022' data-replace='1809'>Release ID: 1809, Build: <i>any</i></button>
+<button type="button" class="btn btn-outline-primary" data-search='1809|2004|2022' data-replace='2004'>Release ID: 2009, Build: 1904<i>x</i></button>
+<button type="button" class="btn btn-outline-primary" data-search='1809|2004|2022' data-replace='2022'>Release ID: 2009, Build: 2200<i>x</i></button>
+</div>
+<script type="application/javascript">
+  jQuery('#page-replacer button').on('click', function () {
+    jQuery('#page-replacer button').removeClass('active');
+    let el = this;
+    jQuery(el).addClass('active');
+    for (const search of el.dataset.search.split("|")) {
+      jQuery('.docs-content *:not([data-search])').replaceText(search, el.dataset.replace);
+    }
+  });
+  jQuery('#page-replacer button:first').click();
+</script>
+</p>
+<p><small><a href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-20H2#windows-client-host-os-compatibility">Learn more about compatibility</a>.</small></p>
 <h3 id="1-select-a-builder">1. Select a builder</h3>
 <p>To <a href="/docs/concepts/operations/build">build</a> an app you must first decide which <a href="/docs/concepts/components/builder">builder</a> you&rsquo;re going to use. A builder
 includes the <a href="/docs/concepts/components/buildpack">buildpacks</a> that will be used as well as the environment for building your
@@ -594,12 +735,15 @@ app.</p>
 <p>For this guide we&rsquo;re going to use a sample builder, <code>cnbs/sample-builder:dotnet-framework-1809</code>.</p>
 <h3 id="2-build-your-app">2. Build your app</h3>
 <p>Now we can build our app. For this example we&rsquo;ll use our <a href="https://github.com/buildpacks/samples">samples</a> repo for simplicity.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># clone the repo</span>
-git clone https://github.com/buildpacks/samples
-
-<span class="c1"># build the app</span>
-pack build sample-app --path samples/apps/aspnet --builder cnbs/sample-builder:dotnet-framework-1809 --trust-builder
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># clone the repo</span>
+</span></span><span class="line"><span class="cl">git clone https://github.com/buildpacks/samples
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># change directory to samples</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> samples
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># build the app</span>
+</span></span><span class="line"><span class="cl">pack build sample-app --path apps/aspnet --builder cnbs/sample-builder:dotnet-framework-1809 --trust-builder
+</span></span></code></pre></div><blockquote>
 <p><strong>TIP:</strong> The builder may take a few minutes to download on the first use.</p>
 </blockquote>
 <blockquote>
@@ -607,16 +751,16 @@ pack build sample-app --path samples/apps/aspnet --builder cnbs/sample-builder:d
 builder by running <code>pack config default-builder &lt;BUILDER&gt;</code>.</p>
 </blockquote>
 <h3 id="3-run-it">3. Run it</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run --rm -it -p 8080:80 sample-app
-</code></pre></div><p><strong>Congratulations!</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --rm -it -p 8080:80 sample-app
+</span></span></code></pre></div><p><strong>Congratulations!</strong></p>
 <p>The app should now be running and accessible via <a href="http://localhost:8080">localhost:8080</a></p>
 <hr>
 <h2 id="using-remote-docker-hosts">Using remote Docker hosts</h2>
 <p><code>pack</code> and your source code don&rsquo;t need to be on the same machine as your Docker daemon, thanks to support for the <a href="https://docs.docker.com/engine/reference/commandline/cli/#environment-variables"><code>DOCKER_HOST</code></a> environment variable.</p>
 <p>Essentially, this points your local Docker client (e.g. <code>docker</code> or <code>pack</code> CLI) to a remote Docker daemon. For instance, if the IP address of your host is <code>10.0.0.1</code> and its daemon is listening on port <code>2375</code>, you can set <code>DOCKER_HOST</code> to <code>tcp://10.0.0.1:2375</code>. Any subsequent <code>pack</code> or <code>docker</code> commands would communicate with the daemon on that machine instead of a local daemon.</p>
-<p>This can be used to make <code>pack</code> build Windows container images, as long as your remote Docker host is configured to support them (i.e. the host runs a Windows OS, has <a href="https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers">Windows container mode enabled</a>).</p>
+<p>This can be used to make <code>pack</code> build Windows container images, as long as your remote Docker host is configured to support them (i.e. the host runs a Windows OS, has <a href="https://docs.docker.com/desktop/faqs/windowsfaqs/#how-do-i-switch-between-windows-and-linux-containers">Windows container mode enabled</a>).</p>
 <p>Here&rsquo;s an example where <code>pack</code> on a Linux/MacOS machine can access a Windows 10 machine with Docker Desktop, using the <a href="https://docs.docker.com/docker-for-windows/#general">localhost:2375 listener</a> and the built-in <a href="https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse">OpenSSH Server</a>.</p>
-<pre><code># ssh port-forward for localhost:2375 to remote daemon
+<pre tabindex="0"><code># ssh port-forward for localhost:2375 to remote daemon
 ssh -f -N -L 2375:127.0.0.1:2375 10.0.0.1
 
 # set to your local forwarded port
@@ -672,36 +816,44 @@ curl http://10.0.0.1:8080
 
   <footer>
   <div class="container footer">
-    <a href="https://www.cncf.io/" style="width: 50%;"><img src="/images/cncf-color.svg" class="footer-logo"></a>
+    <a href="https://www.cncf.io/" style="width: 50%;"><img src="/images/cncf-color.svg" class="footer-logo" alt="CNCF logo" ></a>
     <p>We are a <a href="https://www.cncf.io/">Cloud Native Computing Foundation</a> incubating project.</p>
   </div>
   <div class="bg-blue">
     <div class="container sub-footer">
       <ul>
         
-        <li><a target='_blank' href="https://buildpacks.devstats.cncf.io/d/8/dashboards?orgId=1&amp;refresh=15m">DevStats</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://buildpacks.devstats.cncf.io/d/8/dashboards?orgId=1&amp;refresh=15m">DevStats</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://datastudio.google.com/reporting/4b23856c-6c24-44f5-86f2-333d0ad3f236">Analytics</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://datastudio.google.com/reporting/4b23856c-6c24-44f5-86f2-333d0ad3f236">Analytics</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://www.linuxfoundation.org/privacy/">Privacy Policy</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://www.linuxfoundation.org/privacy/">Privacy Policy</a></li>
         
       </ul>
 
       <ul>
         
-        <li><a target='_blank' href="https://lists.cncf.io/g/cncf-buildpacks/join">Mailing List</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://lists.cncf.io/g/cncf-buildpacks/join">Mailing List</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://slack.buildpacks.io/">Slack</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://slack.cncf.io">Slack</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://twitter.com/buildpacks_io">Twitter</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/buildpacks_io">Twitter</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://github.com/buildpacks">GitHub</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://github.com/buildpacks">GitHub</a></li>
         
+      </ul>
+    </div>
+    <div class="container sub-footer">
+      <ul>
+        <li><p>Copyright © 2022 The Linux Foundation ®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="(https://www.linuxfoundation.org/trademark-usage">Trademark Usage page</a></p></li>
       </ul>
     </div>
   </div>
 </footer>
 
+
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.6.1/asciinema-player.min.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   
@@ -9,8 +9,7 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="Pack for the journey In this tutorial, we&amp;rsquo;ll explain how to use pack and buildpacks to create a runnable app image from source code.
-Learn on Katacoda 
-In order to run the build process in an…"/>
+In order to run the build process in an isolated fashion,…"/>
 <link rel="canonical" content="https://buildpacks.io/docs/app-journey/">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 
@@ -25,8 +24,7 @@ In order to run the build process in an…"/>
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Cloud Native Buildpacks">
 <meta property="og:description" content="Pack for the journey In this tutorial, we&amp;rsquo;ll explain how to use pack and buildpacks to create a runnable app image from source code.
-Learn on Katacoda 
-In order to run the build process in an…">
+In order to run the build process in an isolated fashion,…">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://buildpacks.io/images/buildpacks-social-card.jpg">
 <meta property="og:image:alt" content="Buildpacks project logo">
@@ -45,7 +43,8 @@ In order to run the build process in an…">
 <meta property="twitter:creator" content="@buildpacks_io">
 
   <script
-    src="https://cdn.jsdelivr.net/combine/npm/axios@0.21.0,npm/jquery@3.5.1,npm/bootstrap@4.5.3,npm/fullcalendar@5.4.0"></script>
+    src="https://cdn.jsdelivr.net/combine/npm/axios@0.21.0,npm/jquery@3.5.1,npm/bootstrap@4.5.3,npm/fullcalendar@5.4.0,npm/jquery-replacetext@1.1.0/replacetext.min.js"></script>
+
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css"
     crossorigin="anonymous">
@@ -60,6 +59,19 @@ In order to run the build process in an…">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJLSR4FQXL"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.6.1/asciinema-player.min.css"
+    integrity="sha512-tv24MiwP+0CRCL80VsmJYPl/xDD2tdlDMz9fhNCIAQ6UPrj6Kh/57hOt9A4YnoNDKH5QDxJqGhtt9NPW2sgQeg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer">
+  <style type="text/css">
+    .asciinema-theme-asciinema .fg-15 {
+        color: #6a2929;
+    }
+    .asciinema-theme-asciinema .asciinema-terminal {
+        color: #888888;
+    }
+  </style>
 
   <script>
     $(function () {
@@ -135,7 +147,7 @@ In order to run the build process in an…">
           <a class="nav-link py-2 px-1" href="/docs">Docs</a>
         </li>
         <li class="nav-item text-center d-lg-none">
-          <a class="nav-link py-2 px-1" href="https://github.com/buildpacks">GitHub</a>
+          <a class="nav-link py-2 px-1" target='_blank' rel="noopener noreferrer" href="https://github.com/buildpacks">GitHub</a>
         </li>
       </ul>
 
@@ -183,11 +195,11 @@ In order to run the build process in an…">
 <li data-nav-id="/docs/concepts/components/lifecycle/" class="dd-item depth-2 haschildren">
   <a href="/docs/concepts/components/lifecycle/">Lifecycle</a>
   <ul class="ml-2">
-<li data-nav-id="/docs/concepts/components/lifecycle/detect/" class="dd-item depth-3 collapse">
-  <a href="/docs/concepts/components/lifecycle/detect/">Detect</a>
-</li>
 <li data-nav-id="/docs/concepts/components/lifecycle/analyze/" class="dd-item depth-3 collapse">
   <a href="/docs/concepts/components/lifecycle/analyze/">Analyze</a>
+</li>
+<li data-nav-id="/docs/concepts/components/lifecycle/detect/" class="dd-item depth-3 collapse">
+  <a href="/docs/concepts/components/lifecycle/detect/">Detect</a>
 </li>
 <li data-nav-id="/docs/concepts/components/lifecycle/restore/" class="dd-item depth-3 collapse">
   <a href="/docs/concepts/components/lifecycle/restore/">Restore</a>
@@ -230,6 +242,20 @@ In order to run the build process in an…">
 </li>
   </ul>
 </li>
+<li data-nav-id="/docs/features/" class="dd-item depth-0 haschildren">
+  <a href="/docs/features/">Features</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/features/dockerfiles/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/dockerfiles/">Dockerfiles</a>
+</li>
+<li data-nav-id="/docs/features/reproducibility/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/reproducibility/">Reproducibility</a>
+</li>
+<li data-nav-id="/docs/features/bill-of-materials/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/bill-of-materials/">Software Bill of Materials</a>
+</li>
+  </ul>
+</li>
 <li data-nav-id="/docs/app-developer-guide/" class="dd-item depth-0 haschildren">
   <a href="/docs/app-developer-guide/">App Developer Guide</a>
   <ul class="ml-2">
@@ -239,23 +265,35 @@ In order to run the build process in an…">
 <li data-nav-id="/docs/app-developer-guide/build-a-windows-app/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/build-a-windows-app/">Build a Windows app</a>
 </li>
+<li data-nav-id="/docs/app-developer-guide/build-an-arm-app/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/build-an-arm-app/">Build an ARM app</a>
+</li>
 <li data-nav-id="/docs/app-developer-guide/environment-variables/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/environment-variables/">Environment variables</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/using-cache-image/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/using-cache-image/">Cache Images</a>
 </li>
-<li data-nav-id="/docs/app-developer-guide/mouting-volumes/" class="dd-item depth-1">
-  <a href="/docs/app-developer-guide/mouting-volumes/">Mounting Volumes</a>
+<li data-nav-id="/docs/app-developer-guide/mounting-volumes/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/mounting-volumes/">Mounting Volumes</a>
 </li>
-<li data-nav-id="/docs/app-developer-guide/specific-buildpacks/" class="dd-item depth-1">
-  <a href="/docs/app-developer-guide/specific-buildpacks/">Specify buildpacks</a>
+<li data-nav-id="/docs/app-developer-guide/specify-buildpacks/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/specify-buildpacks/">Specify buildpacks</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/run-an-app/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/run-an-app/">Specify launch process</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/using-project-descriptor/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/using-project-descriptor/">Using project.toml</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/using-inline-buildpacks/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/using-inline-buildpacks/">Using Inline Buildpacks</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/using-http-proxy/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/using-http-proxy/">Using Buildpacks with a Proxy</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/building-on-podman/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/building-on-podman/">Building on Podman</a>
 </li>
   </ul>
 </li>
@@ -302,6 +340,37 @@ In order to run the build process in an…">
 </li>
 <li data-nav-id="/docs/buildpack-author-guide/publishing-with-github-actions/" class="dd-item depth-1">
   <a href="/docs/buildpack-author-guide/publishing-with-github-actions/">Publishing with Github Actions</a>
+</li>
+<li data-nav-id="/docs/buildpack-author-guide/caching-strategies/" class="dd-item depth-1">
+  <a href="/docs/buildpack-author-guide/caching-strategies/">Layer Types</a>
+</li>
+<li data-nav-id="/docs/buildpack-author-guide/build-phases-overview/" class="dd-item depth-1">
+  <a href="/docs/buildpack-author-guide/build-phases-overview/">Overview of Buildpacks Phases</a>
+</li>
+  </ul>
+</li>
+<li data-nav-id="/docs/extension-author-guide/" class="dd-item depth-0 haschildren">
+  <a href="/docs/extension-author-guide/">Extension Author Guide</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/extension-author-guide/create-extension/" class="dd-item depth-1 haschildren">
+  <a href="/docs/extension-author-guide/create-extension/">Create an extension</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/extension-author-guide/create-extension/setup-local-environment/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/setup-local-environment/">Set up your local environment</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/why-dockerfiles/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/why-dockerfiles/">Why Dockerfiles</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/building-blocks-extension/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/building-blocks-extension/">Building blocks of a CNB Image Extension</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/build-dockerfile/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/build-dockerfile/">Generating a build.Dockerfile</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/run-dockerfile/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/run-dockerfile/">Generating a run.Dockerfile</a>
+</li>
+  </ul>
 </li>
   </ul>
 </li>
@@ -454,6 +523,27 @@ In order to run the build process in an…">
 <li data-nav-id="/docs/tools/pack/cli/pack_config_trusted-builders_remove/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_config_trusted-builders_remove/">pack config trusted-builders remove</a>
 </li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension/">pack extension</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_inspect/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_inspect/">pack extension inspect</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_new/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_new/">pack extension new</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_package/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_package/">pack extension package</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_pull/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_pull/">pack extension pull</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_register/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_register/">pack extension register</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_yank/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_yank/">pack extension yank</a>
+</li>
 <li data-nav-id="/docs/tools/pack/cli/pack_inspect/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_inspect/">pack inspect</a>
 </li>
@@ -462,6 +552,12 @@ In order to run the build process in an…">
 </li>
 <li data-nav-id="/docs/tools/pack/cli/pack_report/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_report/">pack report</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_sbom/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_sbom/">pack sbom</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_sbom_download/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_sbom_download/">pack sbom download</a>
 </li>
 <li data-nav-id="/docs/tools/pack/cli/pack_stack/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_stack/">pack stack</a>
@@ -485,6 +581,9 @@ In order to run the build process in an…">
 <li data-nav-id="/docs/tools/kpack/" class="dd-item depth-1">
   <a href="/docs/tools/kpack/">kpack</a>
 </li>
+<li data-nav-id="/docs/tools/piper/" class="dd-item depth-1">
+  <a href="/docs/tools/piper/">Project &ldquo;Piper&rdquo;</a>
+</li>
 <li data-nav-id="/docs/tools/tekton/" class="dd-item depth-1">
   <a href="/docs/tools/tekton/">Tekton</a>
 </li>
@@ -507,9 +606,6 @@ In order to run the build process in an…">
 </li>
   </ul>
 </li>
-<li data-nav-id="/docs/reference/reproducibility/" class="dd-item depth-1 collapse">
-  <a href="/docs/reference/reproducibility/">Reproducible Builds</a>
-</li>
 <li data-nav-id="/docs/reference/spec/" class="dd-item depth-1 collapse haschildren">
   <a href="/docs/reference/spec/">Specification</a>
   <ul class="ml-2">
@@ -528,6 +624,15 @@ In order to run the build process in an…">
 <li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.5-0.6/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/buildpack-api-0.5-0.6/">Buildpack API 0.5 -&gt; 0.6</a>
 </li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.6-0.7/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.6-0.7/">Buildpack API 0.6 -&gt; 0.7</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.7-0.8/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.7-0.8/">Buildpack API 0.7 -&gt; 0.8</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.8-0.9/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.8-0.9/">Buildpack API 0.8 -&gt; 0.9</a>
+</li>
 <li data-nav-id="/docs/reference/spec/migration/platform-api-0.3-0.4/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/platform-api-0.3-0.4/">Platform API 0.3 -&gt; 0.4</a>
 </li>
@@ -536,6 +641,18 @@ In order to run the build process in an…">
 </li>
 <li data-nav-id="/docs/reference/spec/migration/platform-api-0.5-0.6/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/platform-api-0.5-0.6/">Platform API 0.5 -&gt; 0.6</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.6-0.7/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.6-0.7/">Platform API 0.6 -&gt; 0.7</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.7-0.8/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.7-0.8/">Platform API 0.7 -&gt; 0.8</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.8-0.9/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.8-0.9/">Platform API 0.8 -&gt; 0.9</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.9-0.10/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.9-0.10/">Platform API 0.9 -&gt; 0.10</a>
 </li>
   </ul>
 </li>
@@ -576,10 +693,12 @@ In order to run the build process in an…">
 
         <h2 id="pack-for-the-journey">Pack for the journey</h2>
 <p>In this tutorial, we&rsquo;ll explain how to use <code>pack</code> and <strong>buildpacks</strong> to create a runnable app image from source code.</p>
-<a href='https://katacoda.com/buildpacks/scenarios/app-journey' class='button learn-button icon-button bg-green'> Learn on Katacoda </a><br />
+<!--+if false+-->
+
 <p>In order to run the build process in an isolated fashion, <code>pack</code> uses <strong>Docker</strong>. That means you&rsquo;ll need to make sure you have both <code>docker</code> and <code>pack</code> installed:</p>
 <a href='https://store.docker.com/search?type=edition&amp;offering=community' class='download-button button icon-button bg-blue'> Install Docker </a><br />
 <a href='/docs/install-pack' class='download-button button icon-button bg-pink'> Install pack </a><br />
+<!--+end+-->
 <blockquote>
 <p><strong>NOTE:</strong> <code>pack</code> is only one implementation of the <a href="https://github.com/buildpacks/spec/blob/main/platform.md">Cloud Native Buildpacks Platform Specification</a>. Additionally, not all Cloud Native Buildpacks Platforms require Docker.</p>
 </blockquote>
@@ -597,19 +716,26 @@ tests groups of buildpacks against your app&rsquo;s source code. The first group
 will become the selected set of buildpacks for your app. Detection criteria is specific to each buildpack &ndash; for
 instance, an <strong>NPM buildpack</strong> might look for a <code>package.json</code>, and a <strong>Go buildpack</strong> might look for Go source files.</p>
 <h3 id="what-is-a-builderbuilder">What is a <a href="/docs/concepts/components/builder/">builder</a>?</h3>
-A builder is an image that contains all the components necessary to execute a build. A builder image is created by taking a build image and adding a lifecycle, buildpacks, and files that configure aspects of the build including the buildpack detection order and the location(s) of the run image
+<p>A builder is an image that contains all the components necessary to execute a build. A builder image is created by taking a build image and adding a lifecycle, buildpacks, and files that configure aspects of the build including the buildpack detection order and the location(s) of the run image.</p>
 <h2 id="next-stop-the-end">Next stop, the end</h2>
 <p>Let&rsquo;s see all this in action using <code>pack build</code>.</p>
 <p>Run the following commands in a shell to clone and build this <a href="https://github.com/buildpacks/samples/tree/main/apps/java-maven">simple Java app</a>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># clone the repo</span>
-git clone https://github.com/buildpacks/samples
-
-<span class="c1"># go to the app directory</span>
-<span class="nb">cd</span> samples/apps/java-maven
-
-<span class="c1"># build the app</span>
-pack build myapp --builder cnbs/sample-builder:bionic
-</code></pre></div><blockquote>
+<ol>
+<li>Clone the samples repo.</li>
+</ol>
+<pre tabindex="0"><code>git clone https://github.com/buildpacks/samples
+</code></pre><!--+- "{{execute}}"+-->
+<ol start="2">
+<li>Go to the Java apps sub-directory</li>
+</ol>
+<pre tabindex="0"><code>cd samples/apps/java-maven
+</code></pre><!--+- "{{execute}}"+-->
+<ol start="3">
+<li>Build the app using <a href="/docs/tools/pack/"><code>pack</code></a></li>
+</ol>
+<pre tabindex="0"><code>pack build myapp --builder cnbs/sample-builder:jammy
+</code></pre><!--+- "{{execute}}"+-->
+<blockquote>
 <p><strong>NOTE:</strong> This is your first time running <code>pack build</code> for <code>myapp</code>, so you&rsquo;ll notice that
 <strong>the build might take longer than usual.</strong> Subsequent builds will take advantage of various forms of caching.
 If you&rsquo;re curious, try running <code>pack build myapp</code> a second time to see the difference in build time.</p>
@@ -619,8 +745,16 @@ We did say this was a <em>brief</em> journey after all. Take note that your app 
 a JDK, run Maven, or otherwise configure a build environment. <code>pack</code> and <strong>buildpacks</strong> took care of that for you.</p>
 <h2 id="beyond-the-journey">Beyond the journey</h2>
 <p>To test out your new app image locally, you can run it with Docker:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run --rm -p 8080:8080 myapp
-</code></pre></div><p>Now hit <a href="http://localhost:8080"><code>localhost:8080</code></a> in your favorite browser and take a minute to enjoy the view.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --rm -p 8080:8080 myapp
+</span></span></code></pre></div><!--+- "{{execute}}"+-->
+<!--+- if false+-->
+<p>Now hit <a href="http://localhost:8080"><code>localhost:8080</code></a> in your favorite browser and take a minute to enjoy the view.</p>
+<!--+- end+-->
+<!--+ `
+Now open your favorite browser and point it to port "8080" of your host and take a minute to enjoy the view.
+
+On Katacoda you can do this by [clicking here](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com)
+` +-->
 <h3 id="take-your-image-to-the-skies">Take your image to the skies</h3>
 <p><code>pack</code> uses <strong>buildpacks</strong> to help you easily create OCI images that you can run just about anywhere. Try
 deploying your new image to your favorite cloud!</p>
@@ -630,7 +764,9 @@ registry. You can learn more about <code>pack</code> features in the <a href="/d
 </blockquote>
 <h2 id="what-about-windows-apps">What about Windows apps?</h2>
 <p>Windows image builds are now supported!</p>
+<!--+- if false+-->
 <p><a href="/docs/app-developer-guide/build-a-windows-app" class="button bg-blue">Windows build guide</a></p>
+<!--+end+-->
 
 
         
@@ -665,36 +801,44 @@ registry. You can learn more about <code>pack</code> features in the <a href="/d
 
   <footer>
   <div class="container footer">
-    <a href="https://www.cncf.io/" style="width: 50%;"><img src="/images/cncf-color.svg" class="footer-logo"></a>
+    <a href="https://www.cncf.io/" style="width: 50%;"><img src="/images/cncf-color.svg" class="footer-logo" alt="CNCF logo" ></a>
     <p>We are a <a href="https://www.cncf.io/">Cloud Native Computing Foundation</a> incubating project.</p>
   </div>
   <div class="bg-blue">
     <div class="container sub-footer">
       <ul>
         
-        <li><a target='_blank' href="https://buildpacks.devstats.cncf.io/d/8/dashboards?orgId=1&amp;refresh=15m">DevStats</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://buildpacks.devstats.cncf.io/d/8/dashboards?orgId=1&amp;refresh=15m">DevStats</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://datastudio.google.com/reporting/4b23856c-6c24-44f5-86f2-333d0ad3f236">Analytics</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://datastudio.google.com/reporting/4b23856c-6c24-44f5-86f2-333d0ad3f236">Analytics</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://www.linuxfoundation.org/privacy/">Privacy Policy</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://www.linuxfoundation.org/privacy/">Privacy Policy</a></li>
         
       </ul>
 
       <ul>
         
-        <li><a target='_blank' href="https://lists.cncf.io/g/cncf-buildpacks/join">Mailing List</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://lists.cncf.io/g/cncf-buildpacks/join">Mailing List</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://slack.buildpacks.io/">Slack</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://slack.cncf.io">Slack</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://twitter.com/buildpacks_io">Twitter</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/buildpacks_io">Twitter</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://github.com/buildpacks">GitHub</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://github.com/buildpacks">GitHub</a></li>
         
+      </ul>
+    </div>
+    <div class="container sub-footer">
+      <ul>
+        <li><p>Copyright © 2022 The Linux Foundation ®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="(https://www.linuxfoundation.org/trademark-usage">Trademark Usage page</a></p></li>
       </ul>
     </div>
   </div>
 </footer>
 
+
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.6.1/asciinema-player.min.js"></script>
 </body>
 
 </html>

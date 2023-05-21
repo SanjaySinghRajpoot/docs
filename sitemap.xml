@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://buildpacks.io/docs/concepts/components/lifecycle/analyze/</loc>
+  </url><url>
     <loc>https://buildpacks.io/docs/concepts/operations/build/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/app-developer-guide/build-an-app/</loc>
@@ -14,8 +16,6 @@
   </url><url>
     <loc>https://buildpacks.io/docs/operator-guide/create-a-builder/</loc>
   </url><url>
-    <loc>https://buildpacks.io/docs/concepts/components/lifecycle/detect/</loc>
-  </url><url>
     <loc>https://buildpacks.io/features/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/</loc>
@@ -24,9 +24,9 @@
   </url><url>
     <loc>https://buildpacks.io/docs/app-journey/</loc>
   </url><url>
-    <loc>https://buildpacks.io/docs/concepts/components/lifecycle/analyze/</loc>
-  </url><url>
     <loc>https://buildpacks.io/docs/app-developer-guide/build-a-windows-app/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/app-developer-guide/build-an-arm-app/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/concepts/components/buildpack/</loc>
   </url><url>
@@ -35,6 +35,8 @@
     <loc>https://buildpacks.io/docs/tools/pack/concepts/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/operator-guide/create-a-stack/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/concepts/components/lifecycle/detect/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/concepts/operations/</loc>
   </url><url>
@@ -45,6 +47,8 @@
     <loc>https://buildpacks.io/docs/concepts/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/app-developer-guide/environment-variables/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/features/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/concepts/components/lifecycle/</loc>
   </url><url>
@@ -62,9 +66,13 @@
   </url><url>
     <loc>https://buildpacks.io/docs/buildpack-author-guide/create-buildpack/</loc>
   </url><url>
-    <loc>https://buildpacks.io/docs/app-developer-guide/mouting-volumes/</loc>
+    <loc>https://buildpacks.io/docs/extension-author-guide/create-extension/</loc>
   </url><url>
-    <loc>https://buildpacks.io/docs/app-developer-guide/specific-buildpacks/</loc>
+    <loc>https://buildpacks.io/docs/extension-author-guide/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/app-developer-guide/mounting-volumes/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/app-developer-guide/specify-buildpacks/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/concepts/components/stack/</loc>
   </url><url>
@@ -82,15 +90,25 @@
   </url><url>
     <loc>https://buildpacks.io/docs/concepts/components/lifecycle/create/</loc>
   </url><url>
+    <loc>https://buildpacks.io/docs/buildpack-author-guide/caching-strategies/</loc>
+  </url><url>
     <loc>https://buildpacks.io/docs/platform-guide/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/app-developer-guide/using-project-descriptor/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/concepts/components/lifecycle/launch/</loc>
   </url><url>
+    <loc>https://buildpacks.io/docs/app-developer-guide/using-inline-buildpacks/</loc>
+  </url><url>
     <loc>https://buildpacks.io/docs/concepts/components/lifecycle/rebase/</loc>
   </url><url>
+    <loc>https://buildpacks.io/docs/app-developer-guide/using-http-proxy/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/buildpack-author-guide/build-phases-overview/</loc>
+  </url><url>
     <loc>https://buildpacks.io/docs/tools/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/app-developer-guide/building-on-podman/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/reference/</loc>
   </url><url>
@@ -98,11 +116,21 @@
   </url><url>
     <loc>https://buildpacks.io/docs/buildpack-author-guide/create-buildpack/setup-local-environment/</loc>
   </url><url>
+    <loc>https://buildpacks.io/docs/extension-author-guide/create-extension/setup-local-environment/</loc>
+  </url><url>
     <loc>https://buildpacks.io/docs/buildpack-author-guide/create-buildpack/building-blocks-cnb/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/extension-author-guide/create-extension/why-dockerfiles/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/extension-author-guide/create-extension/building-blocks-extension/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/buildpack-author-guide/create-buildpack/detection/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/buildpack-author-guide/create-buildpack/build-app/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/extension-author-guide/create-extension/build-dockerfile/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/extension-author-guide/create-extension/run-dockerfile/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/buildpack-author-guide/create-buildpack/make-app-runnable/</loc>
   </url><url>
@@ -122,6 +150,12 @@
   </url><url>
     <loc>https://buildpacks.io/docs/reference/spec/migration/buildpack-api-0.5-0.6/</loc>
   </url><url>
+    <loc>https://buildpacks.io/docs/reference/spec/migration/buildpack-api-0.6-0.7/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/reference/spec/migration/buildpack-api-0.7-0.8/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/reference/spec/migration/buildpack-api-0.8-0.9/</loc>
+  </url><url>
     <loc>https://buildpacks.io/categories/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/tools/circleci/</loc>
@@ -133,6 +167,8 @@
     <loc>https://buildpacks.io/docs/reference/config/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/reference/spec/distribution-api/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/features/dockerfiles/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/tools/gitlab/</loc>
   </url><url>
@@ -212,11 +248,29 @@
   </url><url>
     <loc>https://buildpacks.io/docs/tools/pack/cli/pack_config_trusted-builders_remove/</loc>
   </url><url>
+    <loc>https://buildpacks.io/docs/tools/pack/cli/pack_extension/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/tools/pack/cli/pack_extension_inspect/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/tools/pack/cli/pack_extension_new/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/tools/pack/cli/pack_extension_package/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/tools/pack/cli/pack_extension_pull/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/tools/pack/cli/pack_extension_register/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/tools/pack/cli/pack_extension_yank/</loc>
+  </url><url>
     <loc>https://buildpacks.io/docs/tools/pack/cli/pack_inspect/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/tools/pack/cli/pack_rebase/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/tools/pack/cli/pack_report/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/tools/pack/cli/pack_sbom/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/tools/pack/cli/pack_sbom_download/</loc>
   </url><url>
     <loc>https://buildpacks.io/docs/tools/pack/cli/pack_stack/</loc>
   </url><url>
@@ -234,9 +288,21 @@
   </url><url>
     <loc>https://buildpacks.io/docs/reference/spec/migration/platform-api-0.5-0.6/</loc>
   </url><url>
+    <loc>https://buildpacks.io/docs/reference/spec/migration/platform-api-0.6-0.7/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/reference/spec/migration/platform-api-0.7-0.8/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/reference/spec/migration/platform-api-0.8-0.9/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/reference/spec/migration/platform-api-0.9-0.10/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/tools/piper/</loc>
+  </url><url>
     <loc>https://buildpacks.io/docs/reference/config/project-descriptor/</loc>
   </url><url>
-    <loc>https://buildpacks.io/docs/reference/reproducibility/</loc>
+    <loc>https://buildpacks.io/docs/features/reproducibility/</loc>
+  </url><url>
+    <loc>https://buildpacks.io/docs/features/bill-of-materials/</loc>
   </url><url>
     <loc>https://buildpacks.io/tags/specplatform/0.6/</loc>
   </url><url>

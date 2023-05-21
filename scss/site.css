@@ -84,7 +84,7 @@ dd {
   margin-left: 0; }
 
 blockquote {
-  margin: 0 0 1rem; }
+  margin: 1.5rem 0; }
 
 dfn {
   font-style: italic; }
@@ -393,7 +393,7 @@ a:hover {
   color: inherit; }
 
 b, strong {
-  font-style: 600; }
+  font-weight: 600; }
 
 hr {
   border: 0;
@@ -772,19 +772,23 @@ header .logo img {
 Hero
 
 **********************************/
+@keyframes colorIn {
+  0% {
+    filter: grayscale(1); }
+  100% {
+    filter: grayscale(0); } }
+
 .hero {
   background-image: url("/images/bg-pattern.png");
   background-color: #47529E;
   background-blend-mode: multiply; }
   .hero .container {
-    padding: 6vw;
+    padding: 4vw;
     text-align: center; }
     .hero .container .strong {
       font-weight: bold; }
     .hero .container h2 {
       font-weight: 300;
-      max-width: 620px;
-      margin: 0 auto 20px;
       color: #FFFFFF;
       text-shadow: 2px 2px rgba(0, 0, 0, 0.2); }
     .hero .container .button-holder {
@@ -797,6 +801,20 @@ Hero
       margin: 20px 0 10px;
       max-width: 200px;
       box-shadow: 2px 2px rgba(0, 0, 0, 0.1); }
+    .hero .container .nav-item .nav-link {
+      margin-right: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      background-color: #242960;
+      opacity: 1; }
+      .hero .container .nav-item .nav-link:not(.active) img {
+        filter: grayscale(1); }
+      .hero .container .nav-item .nav-link:not(.active):hover img {
+        animation: colorIn 500ms;
+        filter: none; }
+      .hero .container .nav-item .nav-link.active {
+        background-color: #FFFFFF;
+        color: #FFFFFF !important; }
   @media (min-width: 768px) {
     .hero .container.hero .button-holder {
       flex-direction: row; }
@@ -1089,7 +1107,10 @@ Footer
 
 .sidebar {
   font-size: 1rem;
-  padding: 10px 0 0 0; }
+  padding: 10px 0 0 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0; }
   .sidebar ul {
     list-style: none;
     padding: 0;
@@ -1118,13 +1139,13 @@ Footer
     margin-left: 15px; }
     .sidebar li[class*="depth-"]:not(.depth-0) a {
       padding: .25rem 1rem; }
-    .sidebar li.parent[class*="depth-"]:not(.depth-0) {
+    .sidebar li[class*="depth-"]:not(.depth-0).parent {
       background: 0 0.75rem url("/images/list-item.svg") no-repeat; }
-      .sidebar li.parent[class*="depth-"]:not(.depth-0) > a {
+      .sidebar li[class*="depth-"]:not(.depth-0).parent > a {
         color: #242960; }
-    .sidebar li.active[class*="depth-"]:not(.depth-0) {
+    .sidebar li[class*="depth-"]:not(.depth-0).active {
       background: 0 0.75rem url("/images/list-item-active.svg") no-repeat; }
-      .sidebar li.active[class*="depth-"]:not(.depth-0) > a {
+      .sidebar li[class*="depth-"]:not(.depth-0).active > a {
         color: #DF0A6B; }
 
 .docs {
@@ -1148,7 +1169,8 @@ Footer
     padding: 0;
     border-right: 1px solid #EFEFEF;
     position: relative;
-    max-width: 400px; }
+    max-width: 400px;
+    z-index: 1; }
     .docs .docs-sidebar:before {
       content: "";
       position: absolute;
@@ -1157,7 +1179,6 @@ Footer
       width: 5px;
       height: 100%;
       background: linear-gradient(to right, rgba(124, 110, 117, 0), rgba(124, 110, 117, 0.05));
-      z-index: 1;
       pointer-events: none; }
     @media (max-width: 767px) {
       .docs .docs-sidebar {

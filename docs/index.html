@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   
@@ -41,7 +41,8 @@
 <meta property="twitter:creator" content="@buildpacks_io">
 
   <script
-    src="https://cdn.jsdelivr.net/combine/npm/axios@0.21.0,npm/jquery@3.5.1,npm/bootstrap@4.5.3,npm/fullcalendar@5.4.0"></script>
+    src="https://cdn.jsdelivr.net/combine/npm/axios@0.21.0,npm/jquery@3.5.1,npm/bootstrap@4.5.3,npm/fullcalendar@5.4.0,npm/jquery-replacetext@1.1.0/replacetext.min.js"></script>
+
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css"
     crossorigin="anonymous">
@@ -56,6 +57,19 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJLSR4FQXL"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.6.1/asciinema-player.min.css"
+    integrity="sha512-tv24MiwP+0CRCL80VsmJYPl/xDD2tdlDMz9fhNCIAQ6UPrj6Kh/57hOt9A4YnoNDKH5QDxJqGhtt9NPW2sgQeg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer">
+  <style type="text/css">
+    .asciinema-theme-asciinema .fg-15 {
+        color: #6a2929;
+    }
+    .asciinema-theme-asciinema .asciinema-terminal {
+        color: #888888;
+    }
+  </style>
 
   <script>
     $(function () {
@@ -131,7 +145,7 @@
           <a class="nav-link py-2 px-1" href="/docs">Docs</a>
         </li>
         <li class="nav-item text-center d-lg-none">
-          <a class="nav-link py-2 px-1" href="https://github.com/buildpacks">GitHub</a>
+          <a class="nav-link py-2 px-1" target='_blank' rel="noopener noreferrer" href="https://github.com/buildpacks">GitHub</a>
         </li>
       </ul>
 
@@ -179,11 +193,11 @@
 <li data-nav-id="/docs/concepts/components/lifecycle/" class="dd-item depth-2 haschildren">
   <a href="/docs/concepts/components/lifecycle/">Lifecycle</a>
   <ul class="ml-2">
-<li data-nav-id="/docs/concepts/components/lifecycle/detect/" class="dd-item depth-3 collapse">
-  <a href="/docs/concepts/components/lifecycle/detect/">Detect</a>
-</li>
 <li data-nav-id="/docs/concepts/components/lifecycle/analyze/" class="dd-item depth-3 collapse">
   <a href="/docs/concepts/components/lifecycle/analyze/">Analyze</a>
+</li>
+<li data-nav-id="/docs/concepts/components/lifecycle/detect/" class="dd-item depth-3 collapse">
+  <a href="/docs/concepts/components/lifecycle/detect/">Detect</a>
 </li>
 <li data-nav-id="/docs/concepts/components/lifecycle/restore/" class="dd-item depth-3 collapse">
   <a href="/docs/concepts/components/lifecycle/restore/">Restore</a>
@@ -226,6 +240,20 @@
 </li>
   </ul>
 </li>
+<li data-nav-id="/docs/features/" class="dd-item depth-0 haschildren">
+  <a href="/docs/features/">Features</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/features/dockerfiles/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/dockerfiles/">Dockerfiles</a>
+</li>
+<li data-nav-id="/docs/features/reproducibility/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/reproducibility/">Reproducibility</a>
+</li>
+<li data-nav-id="/docs/features/bill-of-materials/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/bill-of-materials/">Software Bill of Materials</a>
+</li>
+  </ul>
+</li>
 <li data-nav-id="/docs/app-developer-guide/" class="dd-item depth-0 haschildren">
   <a href="/docs/app-developer-guide/">App Developer Guide</a>
   <ul class="ml-2">
@@ -235,23 +263,35 @@
 <li data-nav-id="/docs/app-developer-guide/build-a-windows-app/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/build-a-windows-app/">Build a Windows app</a>
 </li>
+<li data-nav-id="/docs/app-developer-guide/build-an-arm-app/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/build-an-arm-app/">Build an ARM app</a>
+</li>
 <li data-nav-id="/docs/app-developer-guide/environment-variables/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/environment-variables/">Environment variables</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/using-cache-image/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/using-cache-image/">Cache Images</a>
 </li>
-<li data-nav-id="/docs/app-developer-guide/mouting-volumes/" class="dd-item depth-1">
-  <a href="/docs/app-developer-guide/mouting-volumes/">Mounting Volumes</a>
+<li data-nav-id="/docs/app-developer-guide/mounting-volumes/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/mounting-volumes/">Mounting Volumes</a>
 </li>
-<li data-nav-id="/docs/app-developer-guide/specific-buildpacks/" class="dd-item depth-1">
-  <a href="/docs/app-developer-guide/specific-buildpacks/">Specify buildpacks</a>
+<li data-nav-id="/docs/app-developer-guide/specify-buildpacks/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/specify-buildpacks/">Specify buildpacks</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/run-an-app/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/run-an-app/">Specify launch process</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/using-project-descriptor/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/using-project-descriptor/">Using project.toml</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/using-inline-buildpacks/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/using-inline-buildpacks/">Using Inline Buildpacks</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/using-http-proxy/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/using-http-proxy/">Using Buildpacks with a Proxy</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/building-on-podman/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/building-on-podman/">Building on Podman</a>
 </li>
   </ul>
 </li>
@@ -298,6 +338,37 @@
 </li>
 <li data-nav-id="/docs/buildpack-author-guide/publishing-with-github-actions/" class="dd-item depth-1">
   <a href="/docs/buildpack-author-guide/publishing-with-github-actions/">Publishing with Github Actions</a>
+</li>
+<li data-nav-id="/docs/buildpack-author-guide/caching-strategies/" class="dd-item depth-1">
+  <a href="/docs/buildpack-author-guide/caching-strategies/">Layer Types</a>
+</li>
+<li data-nav-id="/docs/buildpack-author-guide/build-phases-overview/" class="dd-item depth-1">
+  <a href="/docs/buildpack-author-guide/build-phases-overview/">Overview of Buildpacks Phases</a>
+</li>
+  </ul>
+</li>
+<li data-nav-id="/docs/extension-author-guide/" class="dd-item depth-0 haschildren">
+  <a href="/docs/extension-author-guide/">Extension Author Guide</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/extension-author-guide/create-extension/" class="dd-item depth-1 haschildren">
+  <a href="/docs/extension-author-guide/create-extension/">Create an extension</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/extension-author-guide/create-extension/setup-local-environment/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/setup-local-environment/">Set up your local environment</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/why-dockerfiles/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/why-dockerfiles/">Why Dockerfiles</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/building-blocks-extension/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/building-blocks-extension/">Building blocks of a CNB Image Extension</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/build-dockerfile/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/build-dockerfile/">Generating a build.Dockerfile</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/run-dockerfile/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/run-dockerfile/">Generating a run.Dockerfile</a>
+</li>
+  </ul>
 </li>
   </ul>
 </li>
@@ -450,6 +521,27 @@
 <li data-nav-id="/docs/tools/pack/cli/pack_config_trusted-builders_remove/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_config_trusted-builders_remove/">pack config trusted-builders remove</a>
 </li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension/">pack extension</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_inspect/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_inspect/">pack extension inspect</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_new/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_new/">pack extension new</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_package/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_package/">pack extension package</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_pull/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_pull/">pack extension pull</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_register/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_register/">pack extension register</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_yank/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_yank/">pack extension yank</a>
+</li>
 <li data-nav-id="/docs/tools/pack/cli/pack_inspect/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_inspect/">pack inspect</a>
 </li>
@@ -458,6 +550,12 @@
 </li>
 <li data-nav-id="/docs/tools/pack/cli/pack_report/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_report/">pack report</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_sbom/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_sbom/">pack sbom</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_sbom_download/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_sbom_download/">pack sbom download</a>
 </li>
 <li data-nav-id="/docs/tools/pack/cli/pack_stack/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_stack/">pack stack</a>
@@ -481,6 +579,9 @@
 <li data-nav-id="/docs/tools/kpack/" class="dd-item depth-1">
   <a href="/docs/tools/kpack/">kpack</a>
 </li>
+<li data-nav-id="/docs/tools/piper/" class="dd-item depth-1">
+  <a href="/docs/tools/piper/">Project &ldquo;Piper&rdquo;</a>
+</li>
 <li data-nav-id="/docs/tools/tekton/" class="dd-item depth-1">
   <a href="/docs/tools/tekton/">Tekton</a>
 </li>
@@ -503,9 +604,6 @@
 </li>
   </ul>
 </li>
-<li data-nav-id="/docs/reference/reproducibility/" class="dd-item depth-1 collapse">
-  <a href="/docs/reference/reproducibility/">Reproducible Builds</a>
-</li>
 <li data-nav-id="/docs/reference/spec/" class="dd-item depth-1 collapse haschildren">
   <a href="/docs/reference/spec/">Specification</a>
   <ul class="ml-2">
@@ -524,6 +622,15 @@
 <li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.5-0.6/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/buildpack-api-0.5-0.6/">Buildpack API 0.5 -&gt; 0.6</a>
 </li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.6-0.7/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.6-0.7/">Buildpack API 0.6 -&gt; 0.7</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.7-0.8/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.7-0.8/">Buildpack API 0.7 -&gt; 0.8</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.8-0.9/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.8-0.9/">Buildpack API 0.8 -&gt; 0.9</a>
+</li>
 <li data-nav-id="/docs/reference/spec/migration/platform-api-0.3-0.4/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/platform-api-0.3-0.4/">Platform API 0.3 -&gt; 0.4</a>
 </li>
@@ -532,6 +639,18 @@
 </li>
 <li data-nav-id="/docs/reference/spec/migration/platform-api-0.5-0.6/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/platform-api-0.5-0.6/">Platform API 0.5 -&gt; 0.6</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.6-0.7/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.6-0.7/">Platform API 0.6 -&gt; 0.7</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.7-0.8/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.7-0.8/">Platform API 0.7 -&gt; 0.8</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.8-0.9/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.8-0.9/">Platform API 0.8 -&gt; 0.9</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.9-0.10/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.9-0.10/">Platform API 0.9 -&gt; 0.10</a>
 </li>
   </ul>
 </li>
@@ -576,8 +695,8 @@
     <div id="talks-player" class="col-md-8 px-0">
       
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
-          allowfullscreen></iframe>
+        <iframe class="border-0 w-100 h-100" style="position: absolute; top: 0; left: 0;" allowfullscreen
+          title="talks"></iframe>
       </div>
     </div>
     <div id="talks-playlist" class="col-md-4 px-0">
@@ -585,6 +704,38 @@
       <div style="position: relative; padding-bottom: 109.25%; height: 0; overflow: auto;">
         
         <div data-talk-index="0" class="talk border-bottom pl-2 pr-1 py-1 pointer">
+          <div class="small font-weight-bold">Customizing your Buildpacks Build</div>
+          <div class="small font-italic">
+            
+            
+            <span class="talks-presenter">Natalie Arellano, VMware</span>
+            
+             & 
+            <span class="talks-presenter">Aidan Delaney, Bloomberg</span>
+            
+          </div>
+          <div class="small bg-pink px-1 d-inline-block rounded text-light">
+            KubeCon EU (2023)
+          </div>
+        </div>
+        
+        <div data-talk-index="1" class="talk border-bottom pl-2 pr-1 py-1 pointer">
+          <div class="small font-weight-bold">Intro to Cloud Native Buildpacks</div>
+          <div class="small font-italic">
+            
+            
+            <span class="talks-presenter">Javier Romero, VMware</span>
+            
+             & 
+            <span class="talks-presenter">Sambhav Kothari, Bloomberg</span>
+            
+          </div>
+          <div class="small bg-pink px-1 d-inline-block rounded text-light">
+            KubeCon NA (2021)
+          </div>
+        </div>
+        
+        <div data-talk-index="2" class="talk border-bottom pl-2 pr-1 py-1 pointer">
           <div class="small font-weight-bold">Introduction to Cloud Native Buildpacks</div>
           <div class="small font-italic">
             
@@ -595,22 +746,28 @@
             <span class="talks-presenter">Jesse Brown, Salesforce</span>
             
           </div>
-        </div>
-        
-        <div data-talk-index="1" class="talk border-bottom pl-2 pr-1 py-1 pointer">
-          <div class="small font-weight-bold">Deep Dive: Cloud Native Buildpacks</div>
-          <div class="small font-italic">
-            
-            
-            <span class="talks-presenter">Joe Kutner, Heroku</span>
-            
-             & 
-            <span class="talks-presenter">Stephen Levine, Pivotal</span>
-            
+          <div class="small bg-pink px-1 d-inline-block rounded text-light">
+            KubeCon EU (2021)
           </div>
         </div>
         
-        <div data-talk-index="2" class="talk border-bottom pl-2 pr-1 py-1 pointer">
+        <div data-talk-index="3" class="talk border-bottom pl-2 pr-1 py-1 pointer">
+          <div class="small font-weight-bold">Unraveling the magic behind Buildpacks</div>
+          <div class="small font-italic">
+            
+            
+            <span class="talks-presenter">Sambhav Kothari, Bloomberg</span>
+            
+             & 
+            <span class="talks-presenter">Natalie Arellano, VMware</span>
+            
+          </div>
+          <div class="small bg-pink px-1 d-inline-block rounded text-light">
+            PackagingCon (2021)
+          </div>
+        </div>
+        
+        <div data-talk-index="4" class="talk border-bottom pl-2 pr-1 py-1 pointer">
           <div class="small font-weight-bold">Pack to the Future: Cloud-Native Buildpacks on k8s</div>
           <div class="small font-italic">
             
@@ -621,19 +778,12 @@
             <span class="talks-presenter">Joe Kutner, Heroku</span>
             
           </div>
-        </div>
-        
-        <div data-talk-index="3" class="talk border-bottom pl-2 pr-1 py-1 pointer">
-          <div class="small font-weight-bold">Cloud Native Buildpacks: Containers for Everyone</div>
-          <div class="small font-italic">
-            
-            
-            <span class="talks-presenter">Danielle Adams, Heroku</span>
-            
+          <div class="small bg-pink px-1 d-inline-block rounded text-light">
+            SpringOne Platform (2019)
           </div>
         </div>
         
-        <div data-talk-index="4" class="talk border-bottom pl-2 pr-1 py-1 pointer">
+        <div data-talk-index="5" class="talk border-bottom pl-2 pr-1 py-1 pointer">
           <div class="small font-weight-bold">Production CI/CD w/CNBs: Tekton, Gitlab &amp; CircleCI(plus), Oh My!</div>
           <div class="small font-italic">
             
@@ -643,6 +793,38 @@
              & 
             <span class="talks-presenter">Natalie Arellano, VMware</span>
             
+          </div>
+          <div class="small bg-pink px-1 d-inline-block rounded text-light">
+            KubeCon NA (2020)
+          </div>
+        </div>
+        
+        <div data-talk-index="6" class="talk border-bottom pl-2 pr-1 py-1 pointer">
+          <div class="small font-weight-bold">Deep Dive: Cloud Native Buildpacks</div>
+          <div class="small font-italic">
+            
+            
+            <span class="talks-presenter">Joe Kutner, Heroku</span>
+            
+             & 
+            <span class="talks-presenter">Stephen Levine, Pivotal</span>
+            
+          </div>
+          <div class="small bg-pink px-1 d-inline-block rounded text-light">
+            KubeCon NA (2019)
+          </div>
+        </div>
+        
+        <div data-talk-index="7" class="talk border-bottom pl-2 pr-1 py-1 pointer">
+          <div class="small font-weight-bold">Cloud Native Buildpacks: Containers for Everyone</div>
+          <div class="small font-italic">
+            
+            
+            <span class="talks-presenter">Danielle Adams, Heroku</span>
+            
+          </div>
+          <div class="small bg-pink px-1 d-inline-block rounded text-light">
+            Node&#43;JS Interactive (2019)
           </div>
         </div>
         
@@ -664,7 +846,7 @@
 </div>
 
 <script type="application/javascript">
-  let talks = [{"description":"Cloud Native Buildpacks transform your application source code into images that can run on any cloud. In this session you'll learn the basics of using buildpacks, and why they make a great choice over the alternatives.","name":"Introduction to Cloud Native Buildpacks","presenters":["Stephen Levine, VMware","Jesse Brown, Salesforce"],"resources":[{"icon":"file-powerpoint","name":"Slides","url":"https://static.sched.com/hosted_files/kccnceu2021/f3/IntroductionToCloudNativeBuildpacks_StephenLevineJesseBrown_v1.pdf"},{"icon":"file-powerpoint","name":"Slides (Office Hours)","url":"https://docs.google.com/presentation/d/1eM-p7aWv6kiY77GBUR4kvdjuEBA-PEr_th9euNryoJE/view"}],"year":2021,"youtube_id":"r7VfuEHixtc"},{"description":"Learn why you need a buildpack and how to create one. We'll take advantage of caching and Docker layers to speed up rebuilds and deploys. Unlike Dockerfiles, buildpacks are composable. Finally, you'll learn how to rebase your application layers on a new image. This allow operators to efficiently handle the delivery of OS-level dependency upgrades. ","name":"Deep Dive: Cloud Native Buildpacks","presenters":["Joe Kutner, Heroku","Stephen Levine, Pivotal"],"resources":[{"icon":"file-powerpoint","name":"Slides","url":"https://docs.google.com/presentation/d/14cjPH520VGx9aGi4rHRIqgl7RHdUmCRj6PYFEBINPhs/view"}],"youtube_id":"j9Ak5YLrihU"},{"description":"Are you a developer that would rather build features than maintain Dockerfiles? Is your organization excited about Kubernetes but worried about patching vulnerable dependencies across a great number of containers? In this talk, you’ll learn how to use the pack CLI to go from source to image in seconds and patch a pod even faster. Cloud Foundry and Heroku users have long appreciated the developer experience and security guarantees provided by buildpacks. Cloud-Native Buildpacks (a CNCF sandbox project) represents a generational leap in buildpacks, bringing the power of buildpacks to k8s and beyond.","name":"Pack to the Future: Cloud-Native Buildpacks on k8s","presenters":["Emily Casey, Pivotal","Joe Kutner, Heroku"],"resources":[{"icon":"file-powerpoint","name":"Slides","url":"https://docs.google.com/presentation/d/14rkLA2hn3nVu_liiW6Y7hy3hSsnz1HueEdLkhvChONM/view"}],"year":2019,"youtube_id":"J2SXkmOo8iQ"},{"description":"Buildpacks are the core of Heroku - they lower the operational burden of creating and maintaining application environments. Cloud Native Buildpacks combine Heroku’s seamless developer experience with modern container standards, making it easy to build Docker images from Node.js source code. In this talk, Node developers can learn how to perform both OS and application-level upgrades, create Docker images without Dockerfiles, and run containerized Node.js apps with little configuration. (Docker experience not required.)","name":"Cloud Native Buildpacks: Containers for Everyone","presenters":["Danielle Adams, Heroku"],"resources":[{"icon":"file-powerpoint","name":"Slides","url":"https://slides.com/danielleadams/cnbs-node-js-interactive-19"}],"year":2019,"youtube_id":"-u5FIbi3Gs8"},{"description":"Dive into some new functionality of Cloud Native Buildpacks which can be powerful in the enterprise context, such as the ability to narrowly define trusted builders, allowing developers and operators to restrict access to registry credentials, as well as the ability to create Windows images in a number of CI/CD systems, including Tekton, Gitlab and CircleCI.","name":"Production CI/CD w/CNBs: Tekton, Gitlab \u0026 CircleCI(plus), Oh My!","presenters":["David Freilich, VMware","Natalie Arellano, VMware"],"resources":[{"icon":"file-powerpoint","name":"Slides","url":"https://docs.google.com/presentation/d/1vDv33oHU277mh6oCP7vBqQomMpPFIuzSmMTtfaQyBoY/view"}],"year":2020,"youtube_id":"RNN8XwRWGjk"}];
+  let talks = [{"description":"Cloud Native Buildpacks makes building container images as easy as running “pack build.” However, you will eventually want to customize that out-of-the-box experience. This talk explores the many buildpacks extension points that enable custom workflows. For application developers, we introduce inline buildpacks and build time environment variables. For platform operators, we present image extension with Dockerfiles, and how to control the level of customization available in order to adhere to security requirements.","event_name":"KubeCon EU","name":"Customizing your Buildpacks Build","presenters":["Natalie Arellano, VMware","Aidan Delaney, Bloomberg"],"resources":[{"icon":"file-powerpoint","name":"Slides","url":"https://docs.google.com/presentation/d/13eW9rm_lhrbRbwrk_sCeUCkitFI52OJRLbsGVy7eJmA/edit#slide=id.g879acc97aa_0_71"}],"year":2023,"youtube_id":"ZrxAyk1-pSs"},{"description":"Cloud Native Buildpacks transform your application source code into images that can run on any cloud. In this session you'll learn the basics of using buildpacks, why they make a great choice over the alternatives, and what new features the project has to offer. Cloud Native Buildpacks embrace modern container standards, such as the OCI image format. They take advantage of the latest capabilities of these standards, such as cross-repository blob mounting and image layer \"rebasing\" on Docker API v2 registries.","event_name":"KubeCon NA","name":"Intro to Cloud Native Buildpacks","presenters":["Javier Romero, VMware","Sambhav Kothari, Bloomberg"],"resources":[{"icon":"file-powerpoint","name":"Slides","url":"https://docs.google.com/presentation/d/13j_Im9ZLPpAKmQmMSkkeZS9e4Tebhjc_bz8yTF8dR_w/edit?usp=sharing"}],"year":2021,"youtube_id":"bpshvqQMYM0"},{"description":"Cloud Native Buildpacks transform your application source code into images that can run on any cloud. In this session you'll learn the basics of using buildpacks, and why they make a great choice over the alternatives.","event_name":"KubeCon EU","name":"Introduction to Cloud Native Buildpacks","presenters":["Stephen Levine, VMware","Jesse Brown, Salesforce"],"resources":[{"icon":"file-powerpoint","name":"Slides","url":"https://static.sched.com/hosted_files/kccnceu2021/f3/IntroductionToCloudNativeBuildpacks_StephenLevineJesseBrown_v1.pdf"},{"icon":"file-powerpoint","name":"Slides (Office Hours)","url":"https://docs.google.com/presentation/d/1eM-p7aWv6kiY77GBUR4kvdjuEBA-PEr_th9euNryoJE/view"}],"year":2021,"youtube_id":"r7VfuEHixtc"},{"description":"In this talk we will explore how lifecycle - the binary at the heart of buildpacks - makes all this possible. We will be going through the 5 different stages that the lifecycle executes - detect, analyze, restore,  build and finally export and how it stitches up the final OCI image.","event_name":"PackagingCon","name":"Unraveling the magic behind Buildpacks","presenters":["Sambhav Kothari, Bloomberg","Natalie Arellano, VMware"],"resources":[{"icon":"file-powerpoint","name":"Slides","url":"https://docs.google.com/presentation/d/1Ejo8Mf7GXxVHL7PjiApCZMJLtbX6VO8n2H7vEcZkV0I/view"}],"year":2021,"youtube_id":"YoPUu8EryFY"},{"description":"Are you a developer that would rather build features than maintain Dockerfiles? Is your organization excited about Kubernetes but worried about patching vulnerable dependencies across a great number of containers? In this talk, you’ll learn how to use the pack CLI to go from source to image in seconds and patch a pod even faster. Cloud Foundry and Heroku users have long appreciated the developer experience and security guarantees provided by buildpacks. Cloud-Native Buildpacks (a CNCF sandbox project) represents a generational leap in buildpacks, bringing the power of buildpacks to k8s and beyond.","event_name":"SpringOne Platform","name":"Pack to the Future: Cloud-Native Buildpacks on k8s","presenters":["Emily Casey, Pivotal","Joe Kutner, Heroku"],"resources":[{"icon":"file-powerpoint","name":"Slides","url":"https://docs.google.com/presentation/d/14rkLA2hn3nVu_liiW6Y7hy3hSsnz1HueEdLkhvChONM/view"}],"year":2019,"youtube_id":"J2SXkmOo8iQ"},{"description":"Dive into some new functionality of Cloud Native Buildpacks which can be powerful in the enterprise context, such as the ability to narrowly define trusted builders, allowing developers and operators to restrict access to registry credentials, as well as the ability to create Windows images in a number of CI/CD systems, including Tekton, Gitlab and CircleCI.","event_name":"KubeCon NA","name":"Production CI/CD w/CNBs: Tekton, Gitlab \u0026 CircleCI(plus), Oh My!","presenters":["David Freilich, VMware","Natalie Arellano, VMware"],"resources":[{"icon":"file-powerpoint","name":"Slides","url":"https://docs.google.com/presentation/d/1vDv33oHU277mh6oCP7vBqQomMpPFIuzSmMTtfaQyBoY/view"}],"year":2020,"youtube_id":"RNN8XwRWGjk"},{"description":"Learn why you need a buildpack and how to create one. We'll take advantage of caching and Docker layers to speed up rebuilds and deploys. Unlike Dockerfiles, buildpacks are composable. Finally, you'll learn how to rebase your application layers on a new image. This allow operators to efficiently handle the delivery of OS-level dependency upgrades.","event_name":"KubeCon NA","name":"Deep Dive: Cloud Native Buildpacks","presenters":["Joe Kutner, Heroku","Stephen Levine, Pivotal"],"resources":[{"icon":"file-powerpoint","name":"Slides","url":"https://docs.google.com/presentation/d/14cjPH520VGx9aGi4rHRIqgl7RHdUmCRj6PYFEBINPhs/view"}],"year":2019,"youtube_id":"j9Ak5YLrihU"},{"description":"Buildpacks are the core of Heroku - they lower the operational burden of creating and maintaining application environments. Cloud Native Buildpacks combine Heroku’s seamless developer experience with modern container standards, making it easy to build Docker images from Node.js source code. In this talk, Node developers can learn how to perform both OS and application-level upgrades, create Docker images without Dockerfiles, and run containerized Node.js apps with little configuration. (Docker experience not required.)","event_name":"Node+JS Interactive","name":"Cloud Native Buildpacks: Containers for Everyone","presenters":["Danielle Adams, Heroku"],"resources":[{"icon":"file-powerpoint","name":"Slides","url":"https://slides.com/danielleadams/cnbs-node-js-interactive-19"}],"year":2019,"youtube_id":"-u5FIbi3Gs8"}];
 
   $(function () {
     let $talkDescription = $("#talk-description");
@@ -676,7 +858,7 @@
       let talk = talks[index];
 
       
-      $("#talks-playlist div[data-talk-index]").each(function() {
+      $("#talks-playlist div[data-talk-index]").each(function () {
         $(this).attr('data-active', 'false');
       })
       $(this).attr('data-active', 'true');
@@ -742,11 +924,11 @@ maintained by the CNB project, both of which use the <a href="/docs/concepts/com
 <h1 id="community-and-support">Community and Support</h1>
 <p>Cloud Native Buildpacks is an incubating project in the CNCF. We welcome contribution from the community. Here you will find helpful information for interacting with the core team and contributing to the project.</p>
 <h2 id="community">Community</h2>
-<p>The best place to contact the Cloud Native Buildpack team is on our <a href="https://slack.buildpacks.io/">Slack channel</a> or <a href="https://lists.cncf.io/g/cncf-buildpacks">mailing list</a>.</p>
+<p>The best place to contact the Cloud Native Buildpack team is on the <a href="https://slack.cncf.io/">CNCF Slack</a> in the #buildpacks or <a href="https://lists.cncf.io/g/cncf-buildpacks">mailing list</a>.</p>
 <h2 id="contributors-guide">Contributor&rsquo;s Guide</h2>
 <p>Find out the various ways that <em>you</em> can contribute to the Cloud Native Buildpacks project using our <a href="https://github.com/buildpacks/community/blob/main/contributors/guide.md">contributor&rsquo;s guide</a>.</p>
 <h2 id="project-roadmap">Project Roadmap</h2>
-<p>This is a community driven project and our roadmap is publicly available on our <a href="https://github.com/orgs/buildpacks/projects/1">Github page</a>. We encourage you to contribute with feature requests.</p>
+<p>This is a community driven project and our roadmap is publicly available on our <a href="https://github.com/buildpacks/community/blob/main/ROADMAP.md">Github page</a>. We encourage you to contribute with feature requests.</p>
 
 
         
@@ -781,36 +963,44 @@ maintained by the CNB project, both of which use the <a href="/docs/concepts/com
 
   <footer>
   <div class="container footer">
-    <a href="https://www.cncf.io/" style="width: 50%;"><img src="/images/cncf-color.svg" class="footer-logo"></a>
+    <a href="https://www.cncf.io/" style="width: 50%;"><img src="/images/cncf-color.svg" class="footer-logo" alt="CNCF logo" ></a>
     <p>We are a <a href="https://www.cncf.io/">Cloud Native Computing Foundation</a> incubating project.</p>
   </div>
   <div class="bg-blue">
     <div class="container sub-footer">
       <ul>
         
-        <li><a target='_blank' href="https://buildpacks.devstats.cncf.io/d/8/dashboards?orgId=1&amp;refresh=15m">DevStats</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://buildpacks.devstats.cncf.io/d/8/dashboards?orgId=1&amp;refresh=15m">DevStats</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://datastudio.google.com/reporting/4b23856c-6c24-44f5-86f2-333d0ad3f236">Analytics</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://datastudio.google.com/reporting/4b23856c-6c24-44f5-86f2-333d0ad3f236">Analytics</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://www.linuxfoundation.org/privacy/">Privacy Policy</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://www.linuxfoundation.org/privacy/">Privacy Policy</a></li>
         
       </ul>
 
       <ul>
         
-        <li><a target='_blank' href="https://lists.cncf.io/g/cncf-buildpacks/join">Mailing List</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://lists.cncf.io/g/cncf-buildpacks/join">Mailing List</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://slack.buildpacks.io/">Slack</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://slack.cncf.io">Slack</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://twitter.com/buildpacks_io">Twitter</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/buildpacks_io">Twitter</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://github.com/buildpacks">GitHub</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://github.com/buildpacks">GitHub</a></li>
         
+      </ul>
+    </div>
+    <div class="container sub-footer">
+      <ul>
+        <li><p>Copyright © 2022 The Linux Foundation ®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="(https://www.linuxfoundation.org/trademark-usage">Trademark Usage page</a></p></li>
       </ul>
     </div>
   </div>
 </footer>
 
+
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.6.1/asciinema-player.min.js"></script>
 </body>
 
 </html>

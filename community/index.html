@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   
@@ -41,7 +41,8 @@
 <meta property="twitter:creator" content="@buildpacks_io">
 
   <script
-    src="https://cdn.jsdelivr.net/combine/npm/axios@0.21.0,npm/jquery@3.5.1,npm/bootstrap@4.5.3,npm/fullcalendar@5.4.0"></script>
+    src="https://cdn.jsdelivr.net/combine/npm/axios@0.21.0,npm/jquery@3.5.1,npm/bootstrap@4.5.3,npm/fullcalendar@5.4.0,npm/jquery-replacetext@1.1.0/replacetext.min.js"></script>
+
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css"
     crossorigin="anonymous">
@@ -56,6 +57,19 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJLSR4FQXL"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.6.1/asciinema-player.min.css"
+    integrity="sha512-tv24MiwP+0CRCL80VsmJYPl/xDD2tdlDMz9fhNCIAQ6UPrj6Kh/57hOt9A4YnoNDKH5QDxJqGhtt9NPW2sgQeg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer">
+  <style type="text/css">
+    .asciinema-theme-asciinema .fg-15 {
+        color: #6a2929;
+    }
+    .asciinema-theme-asciinema .asciinema-terminal {
+        color: #888888;
+    }
+  </style>
 
   <script>
     $(function () {
@@ -131,7 +145,7 @@
           <a class="nav-link py-2 px-1" href="/docs">Docs</a>
         </li>
         <li class="nav-item text-center d-lg-none">
-          <a class="nav-link py-2 px-1" href="https://github.com/buildpacks">GitHub</a>
+          <a class="nav-link py-2 px-1" target='_blank' rel="noopener noreferrer" href="https://github.com/buildpacks">GitHub</a>
         </li>
       </ul>
 
@@ -158,15 +172,16 @@
           <div>
             <h1 class="mt-1 mb-2 text-white">Join our community</h1>
             <div>
-              <a class="slack-button icon-button bg-pink shadow-sm button d-flex" href="https://slack.buildpacks.io/">Slack</a>
+              <a class="slack-button icon-button bg-pink shadow-sm button d-flex" href="https://slack.cncf.io/">Slack</a>
+	      Find us in the <a href="https://cloud-native.slack.com/app_redirect?channel=buildpacks">#buildpacks</a> channel.
             </div>
             <div class="mt-3 text-left pl-4 pl-lg-0">
               <strong>Also...</strong>
               <ul class="text-left">
-                <li><a href="https://github.com/buildpacks/community/discussions">GitHub Discussions</a></li>
-                <li><a href="https://github.com/buildpacks/community">BuildPacks Community on GitHub</a></li>
-                <li><a href="https://lists.cncf.io/g/cncf-buildpacks">Mailing List</a></li>
-                <li><a href="https://stackoverflow.com/questions/tagged/buildpack">StackOverflow</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/buildpacks/community/discussions">GitHub Discussions</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/buildpacks/community">BuildPacks Community on GitHub</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lists.cncf.io/g/cncf-buildpacks">Mailing List</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/tagged/buildpack">StackOverflow</a></li>
               </ul>
             </div>
           </div>
@@ -181,7 +196,7 @@
         <h2 id="calendar">Calendar</h2>
 <p>Partake in one or many of our following public events:</p>
 <script type="application/javascript">
-    const CAL_CONFIG = {"id":"ksxw26c3km72mq3imn","subcalendars":[{"color":"#2951b9","id":9330130,"name":"Office Hours"},{"color":"#542382","id":9046533,"name":"Sub-Team Syncs"},{"color":"#d96fbf","id":9046534,"name":"Working Group"}],"token":"2144578740eb908ea5b160b649d25300e559a59522f8b528757cf6e75381ab88"};
+    const CAL_CONFIG = {"id":"ksxw26c3km72mq3imn","subcalendars":[{"color":"#4aaace","id":10287223,"name":"Community"},{"color":"#2951b9","id":9330130,"name":"Office Hours"},{"color":"#542382","id":9046533,"name":"Sub-Team Syncs"},{"color":"#d96fbf","id":9046534,"name":"Working Group"}],"token":"2144578740eb908ea5b160b649d25300e559a59522f8b528757cf6e75381ab88"};
     const CAL_BASE_URL = "https://teamup.com/";
     const API_BASE_URL = "https://api.teamup.com/";
     const API_OPTIONS = {
@@ -279,6 +294,11 @@
             Download events as <code>.ics</code>:
         </span>
         <ul class="ml-0 d-inline">
+            <li class="d-inline text-white rounded px-2 py-1" style="background-color: #4aaace;">
+                <a style="text-decoration: none; white-space: nowrap;"
+                    href="https://ics.teamup.com/feed/ksxw26c3km72mq3imn/10287223.ics">Community</a>
+            </li>
+            
             <li class="d-inline text-white rounded px-2 py-1" style="background-color: #2951b9;">
                 <a style="text-decoration: none; white-space: nowrap;"
                     href="https://ics.teamup.com/feed/ksxw26c3km72mq3imn/9330130.ics">Office Hours</a>
@@ -305,12 +325,49 @@
         </div>
         <div class="modal-content h-75 border-0 rounded-0">
             <div class="modal-body m-0 p-0">
-                <iframe class="h-100 w-100 d-block" frameborder="0"></iframe>
+                <iframe class="h-100 w-100 d-block border-0" title="calendar"></iframe>
             </div>
         </div>
     </div>
 </div>
 <h2 id="contributing">Contributing</h2>
+<h4 id="how-can-i-start-contributing">How can I start contributing?</h4>
+<p>If you are new to the project, the first thing you should do is gain some understanding of the project. This normally entails doing the following:</p>
+<ol>
+<li>Watch a few <a href="/docs/#talks">talks (videos)</a>.</li>
+<li>Next, run through some <a href="/docs/#tutorials">tutorials</a>.</li>
+</ol>
+<p>If you run into issues or unexpected behaviour, that&rsquo;s probably the best place to start adding your first contribution.</p>
+<p>If you didn&rsquo;t find anything you&rsquo;d like to improve while going through the tutorials you can browse the repositories below (some of those repositories may even have <a href="https://github.com/search?q=org%3Abuildpacks+label%3A%22good+first+issue%22+state%3Aopen&amp;type=Issues">&ldquo;good first issues&rdquo;</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Tech Stack</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/buildpacks/pack"><code>pack</code></a></td>
+<td>Go, Docker</td>
+<td>CLI providing build and utility functions to end-users.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/buildpacks/lifecycle"><code>lifecycle</code></a></td>
+<td>Go, Docker</td>
+<td>Executables that implement the main <a href="/docs/reference/spec/">specifications</a> and are used by <a href="/docs/concepts/components/platform/">platforms</a> such as <code>pack</code>.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/buildpacks/docs"><code>docs</code></a></td>
+<td>Hugo, HTML, JavaScript</td>
+<td>Main website and documentation.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Depending our your depth of understanding or desires some components may be more ideal than others.</p>
+</blockquote>
 <h4 id="what-type-of-contributions-can-i-make">What type of contributions can I make?</h4>
 <p>Buildpacks welcomes all types of contributions, not just those related to code. We value any help that you can provide, and are more than happy to guide you through the process.</p>
 
@@ -403,9 +460,9 @@
 <li><a href="https://github.com/buildpacks/pack">pack</a></li>
 </ul>
 </li>
-<li>Writing posts for our <a href="https://medium.com/buildpacks">Medium blog</a>. Please discuss blog proposals with the <a href="https://buildpacks.slack.com/archives/CST4A3ECV">learning team on Slack</a>.</li>
+<li>Writing posts for our <a href="https://medium.com/buildpacks">Medium blog</a>. Please discuss blog proposals with the <a href="https://cloud-native.slack.com/app_redirect?channel=buildpacks-learning-team">learning team on Slack, #buildpacks-learning-team</a>.</li>
 </ul>
-<p>If you have any other ideas where documentation would be useful, please feel free to open up an issue in the related repository, or drop a message at the <a href="https://buildpacks.slack.com/archives/CDLN5A3TL">#docs channel on Slack!</a></p>
+<p>If you have any other ideas where documentation would be useful, please feel free to open up an issue in the related repository, or drop a message at the <a href="https://cloud-native.slack.com/app_redirect?channel=buildpacks-learning-team">#buildpacks-learning-team channel on Slack!</a></p>
 </div>
 <div
   class="tab-pane fade "
@@ -458,7 +515,7 @@
 <li>Commit your changes with a sign-off: <code>git commit -s</code></li>
 </ul>
 <p>A sign-off is a single line added to your commit messages that certifies that you wrote and/or have the right to the contributed changes. The signature should look as such:</p>
-<pre><code>Signed-off-by: John Doe &lt;john.doe@email.com&gt;
+<pre tabindex="0"><code>Signed-off-by: John Doe &lt;john.doe@email.com&gt;
 </code></pre><p>Also, git can automatically add the signature by adding the -s flag to the commit command,
 <code>git commit -s</code></p>
 <p>The full text of the certification is available <a href="https://developercertificate.org/">here</a>.</p>
@@ -476,36 +533,44 @@
 
   <footer>
   <div class="container footer">
-    <a href="https://www.cncf.io/" style="width: 50%;"><img src="/images/cncf-color.svg" class="footer-logo"></a>
+    <a href="https://www.cncf.io/" style="width: 50%;"><img src="/images/cncf-color.svg" class="footer-logo" alt="CNCF logo" ></a>
     <p>We are a <a href="https://www.cncf.io/">Cloud Native Computing Foundation</a> incubating project.</p>
   </div>
   <div class="bg-blue">
     <div class="container sub-footer">
       <ul>
         
-        <li><a target='_blank' href="https://buildpacks.devstats.cncf.io/d/8/dashboards?orgId=1&amp;refresh=15m">DevStats</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://buildpacks.devstats.cncf.io/d/8/dashboards?orgId=1&amp;refresh=15m">DevStats</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://datastudio.google.com/reporting/4b23856c-6c24-44f5-86f2-333d0ad3f236">Analytics</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://datastudio.google.com/reporting/4b23856c-6c24-44f5-86f2-333d0ad3f236">Analytics</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://www.linuxfoundation.org/privacy/">Privacy Policy</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://www.linuxfoundation.org/privacy/">Privacy Policy</a></li>
         
       </ul>
 
       <ul>
         
-        <li><a target='_blank' href="https://lists.cncf.io/g/cncf-buildpacks/join">Mailing List</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://lists.cncf.io/g/cncf-buildpacks/join">Mailing List</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://slack.buildpacks.io/">Slack</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://slack.cncf.io">Slack</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://twitter.com/buildpacks_io">Twitter</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/buildpacks_io">Twitter</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://github.com/buildpacks">GitHub</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://github.com/buildpacks">GitHub</a></li>
         
+      </ul>
+    </div>
+    <div class="container sub-footer">
+      <ul>
+        <li><p>Copyright © 2022 The Linux Foundation ®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="(https://www.linuxfoundation.org/trademark-usage">Trademark Usage page</a></p></li>
       </ul>
     </div>
   </div>
 </footer>
 
+
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.6.1/asciinema-player.min.js"></script>
 </body>
 
 </html>

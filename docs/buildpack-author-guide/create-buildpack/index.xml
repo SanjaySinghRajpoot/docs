@@ -15,7 +15,7 @@
       <description>First, we&amp;rsquo;ll create a sample Ruby app that you can use when developing your buildpack:
 mkdir ruby-sample-app Create a file in the current directory called ruby-sample-app/app.rb with the following contents:
 require &amp;#39;sinatra&amp;#39; set :bind, &amp;#39;0.0.0.0&amp;#39; set :port, 8080 get &amp;#39;/&amp;#39; do &amp;#39;Hello World!&amp;#39; end Then, create a file called ruby-sample-app/Gemfile with the following contents:
-source &amp;#34;https://rubygems.org&amp;#34; git_source(:github) {|repo_name| &amp;#34;https://github.com/#{repo_name}&amp;#34; } gem &amp;#34;sinatra&amp;#34; Finally, make sure your local Docker daemon is running by executing:</description>
+source &amp;#39;http://rubygems.org&amp;#39; git_source(:github) {|repo_name| &amp;#34;https://github.com/#{repo_name}&amp;#34; } gem &amp;#39;sinatra&amp;#39; gem &amp;#39;webrick&amp;#39; Finally, make sure your local Docker daemon is running by executing:</description>
     </item>
     
     <item>
@@ -26,10 +26,10 @@ source &amp;#34;https://rubygems.org&amp;#34; git_source(:github) {|repo_name| &
       <guid>https://buildpacks.io/docs/buildpack-author-guide/create-buildpack/building-blocks-cnb/</guid>
       <description>Now we will set up the buildpack scaffolding.
 Let&amp;rsquo;s create the directory where your buildpack will live:
-Using the Pack CLI The buildpack new &amp;lt;id&amp;gt; commmand will create a directory named for the buildpack ID.
+Using the Pack CLI The buildpack new &amp;lt;id&amp;gt; command will create a directory named for the buildpack ID.
 Example:
-pack buildpack new examples/ruby \  --api 0.5 \  --path ruby-buildpack \  --version 0.0.1 \  --stacks io.buildpacks.samples.stacks.bionic This command will create ruby-buildpack directory which contains buildpack.toml, bin/build, bin/detect files.
-Additional Parameters  -a, --api Buildpack API compatibility of the generated buildpack -h, --help Help for &amp;lsquo;new&amp;rsquo; --path the location on the filesystem to generate the artifacts.</description>
+pack buildpack new examples/ruby \ --api 0.8 \ --path ruby-buildpack \ --version 0.0.1 \ --stacks io.buildpacks.samples.stacks.jammy This command will create ruby-buildpack directory which contains buildpack.toml, bin/build, bin/detect files.
+Additional Parameters -a, --api Buildpack API compatibility of the generated buildpack -h, --help Help for &amp;rsquo;new&#39; --path the location on the filesystem to generate the artifacts.</description>
     </item>
     
     <item>
@@ -38,7 +38,7 @@ Additional Parameters  -a, --api Buildpack API compatibility of the generated bu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://buildpacks.io/docs/buildpack-author-guide/create-buildpack/detection/</guid>
-      <description>Next, you will want to actually detect that the app your are building is a Ruby app. In order to do this, you will need to check for a Gemfile.
+      <description>Next, you will want to actually detect that the app you are building is a Ruby app. In order to do this, you will need to check for a Gemfile.
 Replace exit 1 in the detect script with the following check:
 if [[ ! -f Gemfile ]]; then exit 100 fi Your ruby-buildpack/bin/detect script should look like this:
 #!/usr/bin/env bash set -eo pipefail if [[ ! -f Gemfile ]]; then exit 100 fi Next, rebuild your app with the updated buildpack:</description>
@@ -51,7 +51,7 @@ if [[ ! -f Gemfile ]]; then exit 100 fi Your ruby-buildpack/bin/detect script sh
       
       <guid>https://buildpacks.io/docs/buildpack-author-guide/create-buildpack/build-app/</guid>
       <description>Now we&amp;rsquo;ll change the build step you created to install application dependencies. This will require updates to the build script such that it performs the following steps:
- Creates a layer for the Ruby runtime Downloads the Ruby runtime and installs it to the layer Installs Bundler (the Ruby dependency manager) Uses Bundler to install dependencies  By doing this, you&amp;rsquo;ll learn how to create arbitrary layers with your buildpack, and how to read the contents of the app in order to perform actions like downloading dependencies.</description>
+Creates a layer for the Ruby runtime Downloads the Ruby runtime and installs it to the layer Installs Bundler (the Ruby dependency manager) Uses Bundler to install dependencies By doing this, you&amp;rsquo;ll learn how to create arbitrary layers with your buildpack, and how to read the contents of the app in order to perform actions like downloading dependencies.</description>
     </item>
     
     <item>
@@ -61,8 +61,8 @@ if [[ ! -f Gemfile ]]; then exit 100 fi Your ruby-buildpack/bin/detect script sh
       
       <guid>https://buildpacks.io/docs/buildpack-author-guide/create-buildpack/make-app-runnable/</guid>
       <description>To make your app runnable, a default start command must be set. You&amp;rsquo;ll need to add the following to the end of your build script:
-# ... # Set default start command cat &amp;gt; &amp;#34;$layersdir/launch.toml&amp;#34; &amp;lt;&amp;lt;EOL [[processes]] type = &amp;#34;web&amp;#34; command = &amp;#34;bundle exec ruby app.rb&amp;#34; EOL # ... Your full ruby-buildpack/bin/build script should now look like the following:
-#!/usr/bin/env bash set -eo pipefail echo &amp;#34;---&amp;gt; Ruby Buildpack&amp;#34; # 1. GET ARGS layersdir=$1 # 2.</description>
+# ... # Set default start command cat &amp;gt; &amp;#34;$layersdir/launch.toml&amp;#34; &amp;lt;&amp;lt; EOL [[processes]] type = &amp;#34;web&amp;#34; command = &amp;#34;bundle exec ruby app.rb&amp;#34; default = true EOL # ... Your full ruby-buildpack/bin/build script should now look like the following:
+#!/usr/bin/env bash set -eo pipefail echo &amp;#34;---&amp;gt; Ruby Buildpack&amp;#34; # 1.</description>
     </item>
     
     <item>
@@ -85,7 +85,7 @@ for i in 0..5 puts &amp;#34;Running a worker task...&amp;#34; end After building
       <description>We can improve performance by caching dependencies between builds, only re-downloading when necessary. To begin, let&amp;rsquo;s create a cacheable bundler layer.
 Creating the bundler layer To do this, replace the following lines in the build script:
 echo &amp;#34;---&amp;gt; Installing gems&amp;#34; bundle install with the following:
-echo &amp;#34;---&amp;gt; Installing gems&amp;#34; bundlerlayer=&amp;#34;$layersdir/bundler&amp;#34; mkdir -p &amp;#34;$bundlerlayer&amp;#34; echo -e &amp;#39;cache = true\nlaunch = true&amp;#39; &amp;gt; &amp;#34;$layersdir/bundler.toml&amp;#34; bundle config set --local path &amp;#34;$bundlerlayer&amp;#34; &amp;amp;&amp;amp; bundle install &amp;amp;&amp;amp; bundle binstubs --all --path &amp;#34;$bundlerlayer/bin&amp;#34; Your full ruby-buildpack/bin/build script should now look like the following:</description>
+echo &amp;#34;---&amp;gt; Installing gems&amp;#34; bundlerlayer=&amp;#34;$layersdir/bundler&amp;#34; mkdir -p &amp;#34;$bundlerlayer&amp;#34; echo -e &amp;#39;[types]\ncache = true\nlaunch = true&amp;#39; &amp;gt; &amp;#34;$layersdir/bundler.toml&amp;#34; bundle config set --local path &amp;#34;$bundlerlayer&amp;#34; &amp;amp;&amp;amp; bundle install &amp;amp;&amp;amp; bundle binstubs --all --path &amp;#34;$bundlerlayer/bin&amp;#34; Your full ruby-buildpack/bin/build script should now look like the following:</description>
     </item>
     
     <item>
@@ -105,7 +105,7 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the desired 
       
       <guid>https://buildpacks.io/docs/buildpack-author-guide/create-buildpack/adding-bill-of-materials/</guid>
       <description>One of the benefits of buildpacks is they can also populate the app image with metadata from the build process, allowing you to audit the app image for information like:
- The process types that are available and the commands associated with them The run-image the app image was based on The buildpacks were used to create the app image And more&amp;hellip;!  You can find all of this information using pack via its inspect-image command.</description>
+The process types that are available and the commands associated with them The run-image the app image was based on The buildpacks were used to create the app image And more&amp;hellip;! You can find some of this information using pack via its inspect-image command.</description>
     </item>
     
   </channel>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   
@@ -43,7 +43,8 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the…">
 <meta property="twitter:creator" content="@buildpacks_io">
 
   <script
-    src="https://cdn.jsdelivr.net/combine/npm/axios@0.21.0,npm/jquery@3.5.1,npm/bootstrap@4.5.3,npm/fullcalendar@5.4.0"></script>
+    src="https://cdn.jsdelivr.net/combine/npm/axios@0.21.0,npm/jquery@3.5.1,npm/bootstrap@4.5.3,npm/fullcalendar@5.4.0,npm/jquery-replacetext@1.1.0/replacetext.min.js"></script>
+
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css"
     crossorigin="anonymous">
@@ -58,6 +59,19 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the…">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJLSR4FQXL"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.6.1/asciinema-player.min.css"
+    integrity="sha512-tv24MiwP+0CRCL80VsmJYPl/xDD2tdlDMz9fhNCIAQ6UPrj6Kh/57hOt9A4YnoNDKH5QDxJqGhtt9NPW2sgQeg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer">
+  <style type="text/css">
+    .asciinema-theme-asciinema .fg-15 {
+        color: #6a2929;
+    }
+    .asciinema-theme-asciinema .asciinema-terminal {
+        color: #888888;
+    }
+  </style>
 
   <script>
     $(function () {
@@ -133,7 +147,7 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the…">
           <a class="nav-link py-2 px-1" href="/docs">Docs</a>
         </li>
         <li class="nav-item text-center d-lg-none">
-          <a class="nav-link py-2 px-1" href="https://github.com/buildpacks">GitHub</a>
+          <a class="nav-link py-2 px-1" target='_blank' rel="noopener noreferrer" href="https://github.com/buildpacks">GitHub</a>
         </li>
       </ul>
 
@@ -181,11 +195,11 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the…">
 <li data-nav-id="/docs/concepts/components/lifecycle/" class="dd-item depth-2 haschildren">
   <a href="/docs/concepts/components/lifecycle/">Lifecycle</a>
   <ul class="ml-2">
-<li data-nav-id="/docs/concepts/components/lifecycle/detect/" class="dd-item depth-3 collapse">
-  <a href="/docs/concepts/components/lifecycle/detect/">Detect</a>
-</li>
 <li data-nav-id="/docs/concepts/components/lifecycle/analyze/" class="dd-item depth-3 collapse">
   <a href="/docs/concepts/components/lifecycle/analyze/">Analyze</a>
+</li>
+<li data-nav-id="/docs/concepts/components/lifecycle/detect/" class="dd-item depth-3 collapse">
+  <a href="/docs/concepts/components/lifecycle/detect/">Detect</a>
 </li>
 <li data-nav-id="/docs/concepts/components/lifecycle/restore/" class="dd-item depth-3 collapse">
   <a href="/docs/concepts/components/lifecycle/restore/">Restore</a>
@@ -228,6 +242,20 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the…">
 </li>
   </ul>
 </li>
+<li data-nav-id="/docs/features/" class="dd-item depth-0 haschildren">
+  <a href="/docs/features/">Features</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/features/dockerfiles/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/dockerfiles/">Dockerfiles</a>
+</li>
+<li data-nav-id="/docs/features/reproducibility/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/reproducibility/">Reproducibility</a>
+</li>
+<li data-nav-id="/docs/features/bill-of-materials/" class="dd-item depth-1 collapse">
+  <a href="/docs/features/bill-of-materials/">Software Bill of Materials</a>
+</li>
+  </ul>
+</li>
 <li data-nav-id="/docs/app-developer-guide/" class="dd-item depth-0 haschildren">
   <a href="/docs/app-developer-guide/">App Developer Guide</a>
   <ul class="ml-2">
@@ -237,23 +265,35 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the…">
 <li data-nav-id="/docs/app-developer-guide/build-a-windows-app/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/build-a-windows-app/">Build a Windows app</a>
 </li>
+<li data-nav-id="/docs/app-developer-guide/build-an-arm-app/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/build-an-arm-app/">Build an ARM app</a>
+</li>
 <li data-nav-id="/docs/app-developer-guide/environment-variables/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/environment-variables/">Environment variables</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/using-cache-image/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/using-cache-image/">Cache Images</a>
 </li>
-<li data-nav-id="/docs/app-developer-guide/mouting-volumes/" class="dd-item depth-1">
-  <a href="/docs/app-developer-guide/mouting-volumes/">Mounting Volumes</a>
+<li data-nav-id="/docs/app-developer-guide/mounting-volumes/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/mounting-volumes/">Mounting Volumes</a>
 </li>
-<li data-nav-id="/docs/app-developer-guide/specific-buildpacks/" class="dd-item depth-1">
-  <a href="/docs/app-developer-guide/specific-buildpacks/">Specify buildpacks</a>
+<li data-nav-id="/docs/app-developer-guide/specify-buildpacks/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/specify-buildpacks/">Specify buildpacks</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/run-an-app/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/run-an-app/">Specify launch process</a>
 </li>
 <li data-nav-id="/docs/app-developer-guide/using-project-descriptor/" class="dd-item depth-1">
   <a href="/docs/app-developer-guide/using-project-descriptor/">Using project.toml</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/using-inline-buildpacks/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/using-inline-buildpacks/">Using Inline Buildpacks</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/using-http-proxy/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/using-http-proxy/">Using Buildpacks with a Proxy</a>
+</li>
+<li data-nav-id="/docs/app-developer-guide/building-on-podman/" class="dd-item depth-1">
+  <a href="/docs/app-developer-guide/building-on-podman/">Building on Podman</a>
 </li>
   </ul>
 </li>
@@ -300,6 +340,37 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the…">
 </li>
 <li data-nav-id="/docs/buildpack-author-guide/publishing-with-github-actions/" class="dd-item depth-1">
   <a href="/docs/buildpack-author-guide/publishing-with-github-actions/">Publishing with Github Actions</a>
+</li>
+<li data-nav-id="/docs/buildpack-author-guide/caching-strategies/" class="dd-item depth-1">
+  <a href="/docs/buildpack-author-guide/caching-strategies/">Layer Types</a>
+</li>
+<li data-nav-id="/docs/buildpack-author-guide/build-phases-overview/" class="dd-item depth-1">
+  <a href="/docs/buildpack-author-guide/build-phases-overview/">Overview of Buildpacks Phases</a>
+</li>
+  </ul>
+</li>
+<li data-nav-id="/docs/extension-author-guide/" class="dd-item depth-0 haschildren">
+  <a href="/docs/extension-author-guide/">Extension Author Guide</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/extension-author-guide/create-extension/" class="dd-item depth-1 haschildren">
+  <a href="/docs/extension-author-guide/create-extension/">Create an extension</a>
+  <ul class="ml-2">
+<li data-nav-id="/docs/extension-author-guide/create-extension/setup-local-environment/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/setup-local-environment/">Set up your local environment</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/why-dockerfiles/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/why-dockerfiles/">Why Dockerfiles</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/building-blocks-extension/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/building-blocks-extension/">Building blocks of a CNB Image Extension</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/build-dockerfile/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/build-dockerfile/">Generating a build.Dockerfile</a>
+</li>
+<li data-nav-id="/docs/extension-author-guide/create-extension/run-dockerfile/" class="dd-item depth-2 collapse">
+  <a href="/docs/extension-author-guide/create-extension/run-dockerfile/">Generating a run.Dockerfile</a>
+</li>
+  </ul>
 </li>
   </ul>
 </li>
@@ -452,6 +523,27 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the…">
 <li data-nav-id="/docs/tools/pack/cli/pack_config_trusted-builders_remove/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_config_trusted-builders_remove/">pack config trusted-builders remove</a>
 </li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension/">pack extension</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_inspect/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_inspect/">pack extension inspect</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_new/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_new/">pack extension new</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_package/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_package/">pack extension package</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_pull/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_pull/">pack extension pull</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_register/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_register/">pack extension register</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_extension_yank/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_extension_yank/">pack extension yank</a>
+</li>
 <li data-nav-id="/docs/tools/pack/cli/pack_inspect/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_inspect/">pack inspect</a>
 </li>
@@ -460,6 +552,12 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the…">
 </li>
 <li data-nav-id="/docs/tools/pack/cli/pack_report/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_report/">pack report</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_sbom/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_sbom/">pack sbom</a>
+</li>
+<li data-nav-id="/docs/tools/pack/cli/pack_sbom_download/" class="dd-item depth-3 collapse">
+  <a href="/docs/tools/pack/cli/pack_sbom_download/">pack sbom download</a>
 </li>
 <li data-nav-id="/docs/tools/pack/cli/pack_stack/" class="dd-item depth-3 collapse">
   <a href="/docs/tools/pack/cli/pack_stack/">pack stack</a>
@@ -483,6 +581,9 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the…">
 <li data-nav-id="/docs/tools/kpack/" class="dd-item depth-1">
   <a href="/docs/tools/kpack/">kpack</a>
 </li>
+<li data-nav-id="/docs/tools/piper/" class="dd-item depth-1">
+  <a href="/docs/tools/piper/">Project &ldquo;Piper&rdquo;</a>
+</li>
 <li data-nav-id="/docs/tools/tekton/" class="dd-item depth-1">
   <a href="/docs/tools/tekton/">Tekton</a>
 </li>
@@ -505,9 +606,6 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the…">
 </li>
   </ul>
 </li>
-<li data-nav-id="/docs/reference/reproducibility/" class="dd-item depth-1 collapse">
-  <a href="/docs/reference/reproducibility/">Reproducible Builds</a>
-</li>
 <li data-nav-id="/docs/reference/spec/" class="dd-item depth-1 collapse haschildren">
   <a href="/docs/reference/spec/">Specification</a>
   <ul class="ml-2">
@@ -526,6 +624,15 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the…">
 <li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.5-0.6/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/buildpack-api-0.5-0.6/">Buildpack API 0.5 -&gt; 0.6</a>
 </li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.6-0.7/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.6-0.7/">Buildpack API 0.6 -&gt; 0.7</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.7-0.8/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.7-0.8/">Buildpack API 0.7 -&gt; 0.8</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/buildpack-api-0.8-0.9/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/buildpack-api-0.8-0.9/">Buildpack API 0.8 -&gt; 0.9</a>
+</li>
 <li data-nav-id="/docs/reference/spec/migration/platform-api-0.3-0.4/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/platform-api-0.3-0.4/">Platform API 0.3 -&gt; 0.4</a>
 </li>
@@ -534,6 +641,18 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the…">
 </li>
 <li data-nav-id="/docs/reference/spec/migration/platform-api-0.5-0.6/" class="dd-item depth-3 collapse">
   <a href="/docs/reference/spec/migration/platform-api-0.5-0.6/">Platform API 0.5 -&gt; 0.6</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.6-0.7/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.6-0.7/">Platform API 0.6 -&gt; 0.7</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.7-0.8/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.7-0.8/">Platform API 0.7 -&gt; 0.8</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.8-0.9/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.8-0.9/">Platform API 0.8 -&gt; 0.9</a>
+</li>
+<li data-nav-id="/docs/reference/spec/migration/platform-api-0.9-0.10/" class="dd-item depth-3 collapse">
+  <a href="/docs/reference/spec/migration/platform-api-0.9-0.10/">Platform API 0.9 -&gt; 0.10</a>
 </li>
   </ul>
 </li>
@@ -578,111 +697,110 @@ Select Ruby version We&amp;rsquo;ll allow buildpack users to define the…">
 <p>We&rsquo;ll allow buildpack users to define the desired Ruby version via a <code>.ruby-version</code> file in their app. We&rsquo;ll first update the <code>detect</code> script to check for this file. We will then record the dependency we can <code>provide</code> (Ruby), as well as the specific dependency the application will <code>require</code>, in the <code>Build Plan</code>, a document the lifecycle uses to determine if the buildpack will provide everything the application needs.</p>
 <p>Update <code>ruby-buildpack/bin/detect</code> to look like this:</p>
 <!-- test:file=ruby-buildpack/bin/detect -->
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
-</span><span class="cp"></span><span class="nb">set</span> -eo pipefail
-
-<span class="k">if</span> <span class="o">[[</span> ! -f Gemfile <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-   <span class="nb">exit</span> <span class="m">100</span>
-<span class="k">fi</span>
-
-<span class="c1"># ======= ADDED =======</span>
-<span class="nv">plan</span><span class="o">=</span><span class="nv">$2</span>
-<span class="nv">version</span><span class="o">=</span>2.5.1
-
-<span class="k">if</span> <span class="o">[[</span> -f .ruby-version <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">version</span><span class="o">=</span><span class="k">$(</span>cat .ruby-version <span class="p">|</span> tr -d <span class="s1">&#39;[:space:]&#39;</span><span class="k">)</span>
-<span class="k">fi</span>
-
-<span class="nb">echo</span> <span class="s2">&#34;provides = [{ name = \&#34;ruby\&#34; }]&#34;</span> &gt; <span class="s2">&#34;</span><span class="nv">$plan</span><span class="s2">&#34;</span>
-<span class="nb">echo</span> <span class="s2">&#34;requires = [{ name = \&#34;ruby\&#34;, metadata = { version = \&#34;</span><span class="nv">$version</span><span class="s2">\&#34; } }]&#34;</span> &gt;&gt; <span class="s2">&#34;</span><span class="nv">$plan</span><span class="s2">&#34;</span>
-<span class="c1"># ======= /ADDED =======</span>
-</code></pre></div><p>Then you will need to update your <code>build</code> script to look for the recorded Ruby version in the build plan:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">set</span> -eo pipefail
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> ! -f Gemfile <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">   <span class="nb">exit</span> <span class="m">100</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ======= ADDED =======</span>
+</span></span><span class="line"><span class="cl"><span class="nv">plan</span><span class="o">=</span><span class="nv">$2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">version</span><span class="o">=</span>3.1.3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> -f .ruby-version <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">version</span><span class="o">=</span><span class="k">$(</span>cat .ruby-version <span class="p">|</span> tr -d <span class="s1">&#39;[:space:]&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;provides = [{ name = \&#34;ruby\&#34; }]&#34;</span> &gt; <span class="s2">&#34;</span><span class="nv">$plan</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;requires = [{ name = \&#34;ruby\&#34;, metadata = { version = \&#34;</span><span class="nv">$version</span><span class="s2">\&#34; } }]&#34;</span> &gt;&gt; <span class="s2">&#34;</span><span class="nv">$plan</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ======= /ADDED =======</span>
+</span></span></code></pre></div><p>Then you will need to update your <code>build</code> script to look for the recorded Ruby version in the build plan:</p>
 <p>Your <code>ruby-buildpack/bin/build</code> script should look like the following:</p>
 <!-- test:file=ruby-buildpack/bin/build -->
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
-</span><span class="cp"></span><span class="nb">set</span> -eo pipefail
-
-<span class="nb">echo</span> <span class="s2">&#34;---&gt; Ruby Buildpack&#34;</span>
-
-<span class="c1"># ======= MODIFIED =======</span>
-<span class="c1"># 1. GET ARGS</span>
-<span class="nv">layersdir</span><span class="o">=</span><span class="nv">$1</span>
-<span class="nv">plan</span><span class="o">=</span><span class="nv">$3</span>
-
-<span class="c1"># 2. CREATE THE LAYER DIRECTORY</span>
-<span class="nv">rubylayer</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$layersdir</span><span class="s2">&#34;</span>/ruby
-mkdir -p <span class="s2">&#34;</span><span class="nv">$rubylayer</span><span class="s2">&#34;</span>
-
-<span class="c1"># ======= MODIFIED =======</span>
-<span class="c1"># 3. DOWNLOAD RUBY</span>
-<span class="nv">ruby_version</span><span class="o">=</span><span class="k">$(</span>cat <span class="s2">&#34;</span><span class="nv">$plan</span><span class="s2">&#34;</span> <span class="p">|</span> yj -t <span class="p">|</span> jq -r <span class="s1">&#39;.entries[] | select(.name == &#34;ruby&#34;) | .metadata.version&#39;</span><span class="k">)</span>
-<span class="nb">echo</span> <span class="s2">&#34;---&gt; Downloading and extracting Ruby </span><span class="nv">$ruby_version</span><span class="s2">&#34;</span>
-<span class="nv">ruby_url</span><span class="o">=</span>https://s3-external-1.amazonaws.com/heroku-buildpack-ruby/heroku-18/ruby-<span class="nv">$ruby_version</span>.tgz
-wget -q -O - <span class="s2">&#34;</span><span class="nv">$ruby_url</span><span class="s2">&#34;</span> <span class="p">|</span> tar -xzf - -C <span class="s2">&#34;</span><span class="nv">$rubylayer</span><span class="s2">&#34;</span>
-
-<span class="c1"># 4. MAKE RUBY AVAILABLE DURING LAUNCH</span>
-<span class="nb">echo</span> -e <span class="s1">&#39;launch = true&#39;</span> &gt; <span class="s2">&#34;</span><span class="nv">$layersdir</span><span class="s2">/ruby.toml&#34;</span>
-
-<span class="c1"># 5. MAKE RUBY AVAILABLE TO THIS SCRIPT</span>
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$rubylayer</span><span class="s2">&#34;</span>/bin:<span class="nv">$PATH</span>
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="p">:+</span><span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span><span class="p">:</span><span class="si">}</span><span class="s2">&#34;</span><span class="nv">$rubylayer</span><span class="s2">/lib&#34;</span>
-
-<span class="c1"># 6. INSTALL BUNDLER</span>
-<span class="nb">echo</span> <span class="s2">&#34;---&gt; Installing bundler&#34;</span>
-gem install bundler --no-ri --no-rdoc
-
-<span class="c1"># 7. INSTALL GEMS</span>
-<span class="c1"># Compares previous Gemfile.lock checksum to the current Gemfile.lock</span>
-<span class="nv">bundlerlayer</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$layersdir</span><span class="s2">/bundler&#34;</span>
-<span class="nv">local_bundler_checksum</span><span class="o">=</span><span class="k">$((</span>sha256sum Gemfile.lock &gt;/dev/null <span class="m">2</span>&gt;<span class="o">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s1">&#39;DOES_NOT_EXIST&#39;</span><span class="o">)</span> <span class="o">|</span> cut <span class="o">-</span>d <span class="s1">&#39; &#39;</span> <span class="o">-</span>f <span class="m">1</span><span class="o">)</span>
-<span class="nv">remote_bundler_checksum</span><span class="o">=</span><span class="k">$(</span>cat <span class="s2">&#34;</span><span class="nv">$layersdir</span><span class="s2">/bundler.toml&#34;</span> <span class="p">|</span> yj -t <span class="p">|</span> jq -r .metadata.checksum 2&gt;/dev/null <span class="o">||</span> <span class="nb">echo</span> <span class="s1">&#39;DOES_NOT_EXIST&#39;</span><span class="k">)</span>
-
-<span class="k">if</span> <span class="o">[[</span> <span class="o">-</span>f Gemfile.lock <span class="o">&amp;&amp;</span> <span class="nv">$local_bundler_checksum</span> <span class="o">==</span> <span class="nv">$remote_bundler_checksum</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
-    <span class="c1"># Determine if no gem dependencies have changed, so it can reuse existing gems without running bundle install</span>
-    <span class="nb">echo</span> <span class="s2">&#34;---&gt; Reusing gems&#34;</span>
-    bundle config <span class="o">--</span><span class="nb">local</span> path <span class="s2">&#34;</span><span class="nv">$bundlerlayer</span><span class="s2">&#34;</span> &gt;/dev/null
-    bundle config <span class="o">--</span><span class="nb">local</span> bin <span class="s2">&#34;</span><span class="nv">$bundlerlayer</span><span class="s2">/bin&#34;</span> &gt;/dev/null
-<span class="k">else</span>
-    <span class="c1"># Determine if there has been a gem dependency change and install new gems to the bundler layer; re-using existing and un-changed gems</span>
-    <span class="nb">echo</span> <span class="s2">&#34;---&gt; Installing gems&#34;</span>
-    mkdir <span class="o">-</span>p <span class="s2">&#34;</span><span class="nv">$bundlerlayer</span><span class="s2">&#34;</span>
-    cat &gt; <span class="s2">&#34;</span><span class="nv">$layersdir</span><span class="s2">/bundler.toml&#34;</span> <span class="s">&lt;&lt;EOL
-</span><span class="s">cache = true
-</span><span class="s">launch = true
-</span><span class="s">
-</span><span class="s">[metadata]
-</span><span class="s">checksum = &#34;$local_bundler_checksum&#34;
-</span><span class="s">EOL</span>
-    bundle config <span class="nb">set</span> <span class="o">--</span><span class="nb">local</span> path <span class="s2">&#34;</span><span class="nv">$bundlerlayer</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> bundle install <span class="o">&amp;&amp;</span> bundle binstubs <span class="o">--</span>all <span class="o">--</span>path <span class="s2">&#34;</span><span class="nv">$bundlerlayer</span><span class="s2">/bin&#34;</span>
-
-<span class="k">fi</span>
-
-<span class="c1"># 8. SET DEFAULT START COMMAND</span>
-cat &gt; <span class="s2">&#34;</span><span class="nv">$layersdir</span><span class="s2">/launch.toml&#34;</span> <span class="s">&lt;&lt;EOL
-</span><span class="s"># our web process
-</span><span class="s">[[processes]]
-</span><span class="s">type = &#34;web&#34;
-</span><span class="s">command = &#34;bundle exec ruby app.rb&#34;
-</span><span class="s">
-</span><span class="s"># our worker process
-</span><span class="s">[[processes]]
-</span><span class="s">type = &#34;worker&#34;
-</span><span class="s">command = &#34;bundle exec ruby worker.rb&#34;
-</span><span class="s">EOL</span>
-</code></pre></div><p>Finally, create a file <code>ruby-sample-app/.ruby-version</code> with the following contents:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">set</span> -eo pipefail
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;---&gt; Ruby Buildpack&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ======= MODIFIED =======</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 1. GET ARGS</span>
+</span></span><span class="line"><span class="cl"><span class="nv">layersdir</span><span class="o">=</span><span class="nv">$1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">plan</span><span class="o">=</span><span class="nv">$3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. CREATE THE LAYER DIRECTORY</span>
+</span></span><span class="line"><span class="cl"><span class="nv">rubylayer</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$layersdir</span><span class="s2">&#34;</span>/ruby
+</span></span><span class="line"><span class="cl">mkdir -p <span class="s2">&#34;</span><span class="nv">$rubylayer</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ======= MODIFIED =======</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. DOWNLOAD RUBY</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ruby_version</span><span class="o">=</span><span class="k">$(</span>cat <span class="s2">&#34;</span><span class="nv">$plan</span><span class="s2">&#34;</span> <span class="p">|</span> yj -t <span class="p">|</span> jq -r <span class="s1">&#39;.entries[] | select(.name == &#34;ruby&#34;) | .metadata.version&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;---&gt; Downloading and extracting Ruby </span><span class="nv">$ruby_version</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ruby_url</span><span class="o">=</span>https://s3-external-1.amazonaws.com/heroku-buildpack-ruby/heroku-22/ruby-<span class="nv">$ruby_version</span>.tgz
+</span></span><span class="line"><span class="cl">wget -q -O - <span class="s2">&#34;</span><span class="nv">$ruby_url</span><span class="s2">&#34;</span> <span class="p">|</span> tar -xzf - -C <span class="s2">&#34;</span><span class="nv">$rubylayer</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 4. MAKE RUBY AVAILABLE DURING LAUNCH</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s1">&#39;[types]\nlaunch = true&#39;</span> &gt; <span class="s2">&#34;</span><span class="nv">$layersdir</span><span class="s2">/ruby.toml&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 5. MAKE RUBY AVAILABLE TO THIS SCRIPT</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$rubylayer</span><span class="s2">&#34;</span>/bin:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="p">:+</span><span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span><span class="p">:</span><span class="si">}</span><span class="s2">&#34;</span><span class="nv">$rubylayer</span><span class="s2">/lib&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 6. INSTALL GEMS</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Compares previous Gemfile.lock checksum to the current Gemfile.lock</span>
+</span></span><span class="line"><span class="cl"><span class="nv">bundlerlayer</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$layersdir</span><span class="s2">/bundler&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">local_bundler_checksum</span><span class="o">=</span><span class="k">$((</span>sha256sum Gemfile.lock <span class="o">||</span> <span class="nb">echo</span> <span class="s1">&#39;DOES_NOT_EXIST&#39;</span><span class="o">)</span> <span class="o">|</span> cut <span class="o">-</span>d <span class="s1">&#39; &#39;</span> <span class="o">-</span>f <span class="m">1</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">remote_bundler_checksum</span><span class="o">=</span><span class="k">$(</span>cat <span class="s2">&#34;</span><span class="nv">$layersdir</span><span class="s2">/bundler.toml&#34;</span> <span class="p">|</span> yj -t <span class="p">|</span> jq -r .metadata.checksum 2&gt;/dev/null <span class="o">||</span> <span class="nb">echo</span> <span class="s1">&#39;DOES_NOT_EXIST&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Always set the types table so that we re-use the appropriate layers</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="o">-</span>e <span class="s1">&#39;[types]\ncache = true\nlaunch = true&#39;</span> &gt;&gt; <span class="s2">&#34;</span><span class="nv">$layersdir</span><span class="s2">/bundler.toml&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> <span class="o">-</span>f Gemfile.lock <span class="o">&amp;&amp;</span> <span class="nv">$local_bundler_checksum</span> <span class="o">==</span> <span class="nv">$remote_bundler_checksum</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Determine if no gem dependencies have changed, so it can reuse existing gems without running bundle install</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;---&gt; Reusing gems&#34;</span>
+</span></span><span class="line"><span class="cl">    bundle config <span class="o">--</span><span class="nb">local</span> path <span class="s2">&#34;</span><span class="nv">$bundlerlayer</span><span class="s2">&#34;</span> &gt;/dev/null
+</span></span><span class="line"><span class="cl">    bundle config <span class="o">--</span><span class="nb">local</span> bin <span class="s2">&#34;</span><span class="nv">$bundlerlayer</span><span class="s2">/bin&#34;</span> &gt;/dev/null
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Determine if there has been a gem dependency change and install new gems to the bundler layer; re-using existing and un-changed gems</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;---&gt; Installing gems&#34;</span>
+</span></span><span class="line"><span class="cl">    mkdir <span class="o">-</span>p <span class="s2">&#34;</span><span class="nv">$bundlerlayer</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    cat &gt;&gt; <span class="s2">&#34;</span><span class="nv">$layersdir</span><span class="s2">/bundler.toml&#34;</span> <span class="s">&lt;&lt; EOL
+</span></span></span><span class="line"><span class="cl"><span class="s">[metadata]
+</span></span></span><span class="line"><span class="cl"><span class="s">checksum = &#34;$local_bundler_checksum&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">EOL</span>
+</span></span><span class="line"><span class="cl">    bundle config <span class="nb">set</span> <span class="o">--</span><span class="nb">local</span> path <span class="s2">&#34;</span><span class="nv">$bundlerlayer</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> bundle install <span class="o">&amp;&amp;</span> bundle binstubs <span class="o">--</span>all <span class="o">--</span>path <span class="s2">&#34;</span><span class="nv">$bundlerlayer</span><span class="s2">/bin&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 7. SET DEFAULT START COMMAND</span>
+</span></span><span class="line"><span class="cl">cat &gt; <span class="s2">&#34;</span><span class="nv">$layersdir</span><span class="s2">/launch.toml&#34;</span> <span class="s">&lt;&lt; EOL
+</span></span></span><span class="line"><span class="cl"><span class="s"># our web process
+</span></span></span><span class="line"><span class="cl"><span class="s">[[processes]]
+</span></span></span><span class="line"><span class="cl"><span class="s">type = &#34;web&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">command = &#34;bundle exec ruby app.rb&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">default = true
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"># our worker process
+</span></span></span><span class="line"><span class="cl"><span class="s">[[processes]]
+</span></span></span><span class="line"><span class="cl"><span class="s">type = &#34;worker&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">command = &#34;bundle exec ruby worker.rb&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">EOL</span>
+</span></span></code></pre></div><p>Finally, create a file <code>ruby-sample-app/.ruby-version</code> with the following contents:</p>
 <!-- test:file=ruby-sample-app/.ruby-version -->
-<pre><code>2.5.0
+<pre tabindex="0"><code>3.1.0
 </code></pre><p>Now when you run:</p>
 <!-- test:exec -->
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pack build test-ruby-app --path ./ruby-sample-app --buildpack ./ruby-buildpack
-</code></pre></div><p>You will notice that version of Ruby specified in the app&rsquo;s <code>.ruby-version</code> file is downloaded.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pack build test-ruby-app --path ./ruby-sample-app --buildpack ./ruby-buildpack
+</span></span></code></pre></div><!--+- "{{execute}}"+-->
+<p>You will notice that version of Ruby specified in the app&rsquo;s <code>.ruby-version</code> file is downloaded.</p>
 <!-- test:assert=contains -->
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">===&gt; BUILDING
-[builder] ---&gt; Ruby Buildpack
-[builder] ---&gt; Downloading and extracting Ruby 2.5.0
-</code></pre></div><p>Next, let&rsquo;s see how buildpacks can store information about the dependencies provided in the output app image for introspection.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">===&gt; BUILDING
+</span></span><span class="line"><span class="cl">---&gt; Ruby Buildpack
+</span></span><span class="line"><span class="cl">---&gt; Downloading and extracting Ruby 3.1.0
+</span></span></code></pre></div><p>Next, let&rsquo;s see how buildpacks can store information about the dependencies provided in the output app image for introspection.</p>
+<!--+if false+-->
 <hr>
 <p><a href="/docs/buildpack-author-guide/create-buildpack/adding-bill-of-materials" class="button bg-pink">Next Step</a></p>
+<!--+end+-->
 
 
         
@@ -717,36 +835,44 @@ cat &gt; <span class="s2">&#34;</span><span class="nv">$layersdir</span><span cl
 
   <footer>
   <div class="container footer">
-    <a href="https://www.cncf.io/" style="width: 50%;"><img src="/images/cncf-color.svg" class="footer-logo"></a>
+    <a href="https://www.cncf.io/" style="width: 50%;"><img src="/images/cncf-color.svg" class="footer-logo" alt="CNCF logo" ></a>
     <p>We are a <a href="https://www.cncf.io/">Cloud Native Computing Foundation</a> incubating project.</p>
   </div>
   <div class="bg-blue">
     <div class="container sub-footer">
       <ul>
         
-        <li><a target='_blank' href="https://buildpacks.devstats.cncf.io/d/8/dashboards?orgId=1&amp;refresh=15m">DevStats</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://buildpacks.devstats.cncf.io/d/8/dashboards?orgId=1&amp;refresh=15m">DevStats</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://datastudio.google.com/reporting/4b23856c-6c24-44f5-86f2-333d0ad3f236">Analytics</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://datastudio.google.com/reporting/4b23856c-6c24-44f5-86f2-333d0ad3f236">Analytics</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://www.linuxfoundation.org/privacy/">Privacy Policy</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://www.linuxfoundation.org/privacy/">Privacy Policy</a></li>
         
       </ul>
 
       <ul>
         
-        <li><a target='_blank' href="https://lists.cncf.io/g/cncf-buildpacks/join">Mailing List</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://lists.cncf.io/g/cncf-buildpacks/join">Mailing List</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://slack.buildpacks.io/">Slack</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://slack.cncf.io">Slack</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://twitter.com/buildpacks_io">Twitter</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/buildpacks_io">Twitter</a></li>
         
-        <li><span>&bull;</span><a target='_blank' href="https://github.com/buildpacks">GitHub</a></li>
+        <li><span>&bull;</span><a target="_blank" rel="noopener noreferrer" href="https://github.com/buildpacks">GitHub</a></li>
         
+      </ul>
+    </div>
+    <div class="container sub-footer">
+      <ul>
+        <li><p>Copyright © 2022 The Linux Foundation ®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="(https://www.linuxfoundation.org/trademark-usage">Trademark Usage page</a></p></li>
       </ul>
     </div>
   </div>
 </footer>
 
+
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.6.1/asciinema-player.min.js"></script>
 </body>
 
 </html>
